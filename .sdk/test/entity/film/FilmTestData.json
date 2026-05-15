@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "film": {
+      "FILM00": {
+        "brand": "s6e",
+        "description": "s6f",
+        "format120": true,
+        "format35mm": false,
+        "id": "FILM00",
+        "image": "s73",
+        "iso": "s74",
+        "key_feature": [],
+        "model": "s76",
+        "processing_type": "s77",
+        "type": "s78"
+      },
+      "FILM01": {
+        "brand": "sdc",
+        "description": "sdd",
+        "format120": true,
+        "format35mm": false,
+        "id": "FILM01",
+        "image": "se1",
+        "iso": "se2",
+        "key_feature": [],
+        "model": "se4",
+        "processing_type": "se5",
+        "type": "se6"
+      },
+      "FILM02": {
+        "brand": "s14a",
+        "description": "s14b",
+        "format120": true,
+        "format35mm": false,
+        "id": "FILM02",
+        "image": "s14f",
+        "iso": "s150",
+        "key_feature": [],
+        "model": "s152",
+        "processing_type": "s153",
+        "type": "s154"
+      }
+    }
+  },
+  "new": {
+    "film": {
+      "film_ref01": {
+        "brand": "s1b8",
+        "description": "s1b9",
+        "format120": true,
+        "format35mm": false,
+        "image": "s1bd",
+        "iso": "s1be",
+        "key_feature": [],
+        "model": "s1c0",
+        "processing_type": "s1c1",
+        "type": "s1c2"
+      }
+    }
+  }
+}

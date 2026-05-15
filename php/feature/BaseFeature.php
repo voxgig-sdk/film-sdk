@@ -1,0 +1,37 @@
+<?php
+declare(strict_types=1);
+
+// Film SDK base feature
+
+class FilmBaseFeature
+{
+    public string $version;
+    public string $name;
+    public bool $active;
+
+    public function __construct()
+    {
+        $this->version = '0.0.1';
+        $this->name = 'base';
+        $this->active = true;
+    }
+
+    public function get_version(): string { return $this->version; }
+    public function get_name(): string { return $this->name; }
+    public function get_active(): bool { return $this->active; }
+
+    public function init(FilmContext $ctx, array $options): void {}
+    public function PostConstruct(FilmContext $ctx): void {}
+    public function PostConstructEntity(FilmContext $ctx): void {}
+    public function SetData(FilmContext $ctx): void {}
+    public function GetData(FilmContext $ctx): void {}
+    public function GetMatch(FilmContext $ctx): void {}
+    public function SetMatch(FilmContext $ctx): void {}
+    public function PrePoint(FilmContext $ctx): void {}
+    public function PreSpec(FilmContext $ctx): void {}
+    public function PreRequest(FilmContext $ctx): void {}
+    public function PreResponse(FilmContext $ctx): void {}
+    public function PreResult(FilmContext $ctx): void {}
+    public function PreDone(FilmContext $ctx): void {}
+    public function PreUnexpected(FilmContext $ctx): void {}
+}

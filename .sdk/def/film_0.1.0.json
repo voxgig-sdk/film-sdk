@@ -1,0 +1,198 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Film API",
+    "description": "Provides detailed information on various photo camera films in 35mm and 120 formats including brand name, film model, ISO, availability in different formats, black & white or color specification, processing type, image, film description, and key features.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://filmapi.vercel.app/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://filmapi.vercel.app",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/films": {
+      "get": {
+        "summary": "Get all films",
+        "description": "Retrieves a list of all photo camera films with detailed information including brand, model, ISO, formats, and specifications",
+        "operationId": "getAllFilms",
+        "tags": [
+          "Films"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of films",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Film"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/films/{id}": {
+      "get": {
+        "summary": "Get film by ID",
+        "description": "Retrieves detailed information about a specific film by its ID",
+        "operationId": "getFilmById",
+        "tags": [
+          "Films"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Unique identifier of the film",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with film details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Film"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Film not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Film": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the film"
+          },
+          "brand": {
+            "type": "string",
+            "description": "Brand name of the film manufacturer",
+            "example": "Kodak"
+          },
+          "model": {
+            "type": "string",
+            "description": "Film model name",
+            "example": "Portra 400"
+          },
+          "iso": {
+            "type": "integer",
+            "description": "ISO rating of the film",
+            "example": 400
+          },
+          "format35mm": {
+            "type": "boolean",
+            "description": "Indicates if the film is available in 35mm format"
+          },
+          "format120": {
+            "type": "boolean",
+            "description": "Indicates if the film is available in 120 format"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "color",
+              "black_and_white"
+            ],
+            "description": "Specifies whether the film is color or black and white"
+          },
+          "processingType": {
+            "type": "string",
+            "description": "Type of chemical processing required for the film",
+            "example": "C-41"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to an image of the film"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the film"
+          },
+          "keyFeatures": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of key features and characteristics of the film"
+          }
+        },
+        "required": [
+          "id",
+          "brand",
+          "model",
+          "iso",
+          "type"
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "message": {
+            "type": "string",
+            "description": "Detailed error description"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Films",
+      "description": "Operations related to photo camera films"
+    }
+  ]
+}

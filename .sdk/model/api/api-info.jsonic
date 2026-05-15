@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://filmapi.vercel.app/"
+      }
+      description: "Provides detailed information on various photo camera films in 35mm and 120 formats including brand name, film model, ISO, availability in different formats, black & white or color specification, processing type, image, film description, and key features."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://filmapi.vercel.app"
+        }
+      ]
+      title: "Film API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
