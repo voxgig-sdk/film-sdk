@@ -93,7 +93,6 @@ def film_basic_setup(extra)
     "FILM_TEST_FILM_ENTID" => idmap,
     "FILM_TEST_LIVE" => "FALSE",
     "FILM_TEST_EXPLAIN" => "FALSE",
-    "FILM_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -105,7 +104,6 @@ def film_basic_setup(extra)
   if env["FILM_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["FILM_APIKEY"],
       },
       extra || {},
     ])
