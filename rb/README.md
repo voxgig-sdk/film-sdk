@@ -10,13 +10,13 @@ The Ruby SDK for the Film API — an entity-oriented client using idiomatic Ruby
 
 ## Install
 ```bash
-gem install film-sdk
+gem install voxgig-sdk-film
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "film-sdk"
+gem "voxgig-sdk-film"
 ```
 
 Then run:

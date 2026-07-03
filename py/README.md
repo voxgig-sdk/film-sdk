@@ -10,7 +10,7 @@ The Python SDK for the Film API — an entity-oriented client following Pythonic
 
 ## Install
 ```bash
-pip install film-sdk
+pip install voxgig-sdk-film
 ```
 
 Or install from source:

@@ -10,7 +10,7 @@ The TypeScript SDK for the Film API — a type-safe, entity-oriented client with
 
 ## Install
 ```bash
-npm install film
+npm install @voxgig-sdk/film
 ```
 ## Tutorial: your first API call
 

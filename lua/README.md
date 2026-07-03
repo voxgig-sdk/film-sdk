@@ -10,7 +10,7 @@ The Lua SDK for the Film API — an entity-oriented client using Lua conventions
 
 ## Install
 ```bash
-luarocks install film-sdk
+luarocks install voxgig-sdk-film
 ```
 
 If the module is not yet published, add the source directory to

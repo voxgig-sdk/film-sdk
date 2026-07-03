@@ -8,12 +8,14 @@ source = {
   dir = "film-sdk/lua"
 }
 description = {
-  summary = "Film SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Film public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/film-sdk",
+  issues_url = "https://github.com/voxgig-sdk/film-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "film" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {
