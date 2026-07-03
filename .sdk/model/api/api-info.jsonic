@@ -16,29 +16,7 @@ main: {
       ]
       title: "Film API"
       version: "1.0.0"
-      tagline: "Browse a catalogue of 35mm and 120 photographic films with brand, ISO, colour/B&W and processing details"
-      homepage: "https://filmapi.vercel.app"
-      docs_url: "https://filmapi.vercel.app"
-      license_short: "No licence specified by the provider."
-      license_md: `- The provider publishes no explicit licence or terms of use.
-- Treat film names, brand names, and product imagery as the property of their respective manufacturers.
-- Confirm acceptable use with the provider before relying on the data commercially.`
-      about_md: `The Film API is a small community catalogue of photographic still films, served from [filmapi.vercel.app](https://filmapi.vercel.app). It focuses on analogue stocks for 35mm and 120 (medium format) cameras.
-
-What you get from the API:
-
-- Film brand and product name
-- ISO (film speed) rating
-- Format availability flags for 35mm and 120
-- Colour vs black-and-white designation
-- Processing type (for example \`c-41\`, \`e-6\`, \`b&w\`)
-- A product image URL plus descriptive text and key feature notes
-
-The service exposes a single REST endpoint, \`GET /api/films\`, which returns the full catalogue as a JSON array. No authentication is documented. CORS is reported as disabled, so calls from a browser will typically need a server-side proxy.`
-      entity_desc: {
-        film: "A photographic still film stock, listed with brand, name, ISO, format flags, colour/B&W, and processing details; the catalogue is returned by `GET /api/films`."
-      }
-      auth: false
     }
   }
 }
+

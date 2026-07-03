@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://filmapi.vercel.app',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -55,121 +59,123 @@ class Config {
     "film": {
       "fields": [
         {
+          "active": true,
           "name": "brand",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "description",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "format120",
           "req": false,
           "type": "`$BOOLEAN`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "format35mm",
           "req": false,
           "type": "`$BOOLEAN`",
-          "active": true,
           "index$": 3
         },
         {
+          "active": true,
           "name": "id",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 4
         },
         {
+          "active": true,
           "name": "image",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 5
         },
         {
+          "active": true,
           "name": "iso",
           "req": true,
           "type": "`$INTEGER`",
-          "active": true,
           "index$": 6
         },
         {
+          "active": true,
           "name": "key_feature",
           "req": false,
           "type": "`$ARRAY`",
-          "active": true,
           "index$": 7
         },
         {
+          "active": true,
           "name": "model",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 8
         },
         {
+          "active": true,
           "name": "processing_type",
           "req": false,
           "type": "`$STRING`",
-          "active": true,
           "index$": 9
         },
         {
+          "active": true,
           "name": "type",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 10
         }
       ],
       "name": "film",
       "op": {
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/api/films",
               "parts": [
                 "api",
                 "films"
               ],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "args": {},
-              "select": {},
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "list"
         },
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
               "args": {
                 "params": [
                   {
+                    "active": true,
                     "kind": "param",
                     "name": "id",
                     "orig": "id",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -189,11 +195,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },

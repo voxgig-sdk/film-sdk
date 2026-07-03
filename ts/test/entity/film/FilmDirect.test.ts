@@ -136,12 +136,14 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'FILM_TEST_FILM_ENTID': {},
     'FILM_TEST_LIVE': 'FALSE',
+    'FILM_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.FILM_TEST_LIVE
 
   if (live) {
     const client = new FilmSDK({
+      apikey: env.FILM_APIKEY,
     })
 
     let idmap: any = env['FILM_TEST_FILM_ENTID']

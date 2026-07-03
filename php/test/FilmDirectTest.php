@@ -123,12 +123,14 @@ function film_direct_setup($mockres)
     $env = Runner::env_override([
         "FILM_TEST_FILM_ENTID" => [],
         "FILM_TEST_LIVE" => "FALSE",
+        "FILM_APIKEY" => "NONE",
     ]);
 
     $live = $env["FILM_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["FILM_APIKEY"],
         ];
         $client = new FilmSDK($merged_opts);
         return [

@@ -117,12 +117,14 @@ function film_direct_setup(mockres)
   local env = runner.env_override({
     ["FILM_TEST_FILM_ENTID"] = {},
     ["FILM_TEST_LIVE"] = "FALSE",
+    ["FILM_APIKEY"] = "NONE",
   })
 
   local live = env["FILM_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["FILM_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

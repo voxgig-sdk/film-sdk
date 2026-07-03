@@ -109,12 +109,14 @@ def _film_direct_setup(mockres):
     env = runner.env_override({
         "FILM_TEST_FILM_ENTID": {},
         "FILM_TEST_LIVE": "FALSE",
+        "FILM_APIKEY": "NONE",
     })
 
     live = env.get("FILM_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("FILM_APIKEY"),
         }
         client = FilmSDK(merged_opts)
         return {
