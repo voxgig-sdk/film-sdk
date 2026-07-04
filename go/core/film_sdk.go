@@ -245,6 +245,9 @@ func (sdk *FilmSDK) Direct(fetchargs map[string]any) (map[string]any, error) {
 }
 
 
+// Film returns a Film entity bound to this client.
+// Idiomatic usage: client.Film(nil).List(nil, nil) or
+// client.Film(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *FilmSDK) Film(data map[string]any) FilmEntity {
 	return NewFilmEntityFunc(sdk, data)
 }

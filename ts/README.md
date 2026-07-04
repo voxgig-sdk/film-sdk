@@ -9,9 +9,12 @@ The TypeScript SDK for the Film API — a type-safe, entity-oriented client with
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/film
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/film-sdk/releases](https://github.com/voxgig-sdk/film-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FilmSDK } from 'film'
+import { FilmSDK } from '@voxgig-sdk/film'
 
-const client = new FilmSDK({
-  apikey: process.env.FILM_APIKEY,
-})
+const client = new FilmSDK()
 ```
 
 ### 2. List films
 
 ```ts
-const result = await client.Film().list()
+const result = await client.film.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -42,7 +43,7 @@ if (result.ok) {
 ### 3. Load a film
 
 ```ts
-const result = await client.Film().load({ id: 'example_id' })
+const result = await client.film.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -91,7 +92,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = FilmSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.film.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -99,7 +100,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new FilmSDK({ apikey: '...' })
+const client = new FilmSDK()
 const testClient = client.tester()
 ```
 
@@ -108,7 +109,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.film
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -135,7 +136,6 @@ const logger = {
 }
 
 const client = new FilmSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -146,7 +146,6 @@ Create a `.env.local` file at the project root:
 
 ```
 FILM_TEST_LIVE=TRUE
-FILM_APIKEY=<your-key>
 ```
 
 Then run:
@@ -164,7 +163,6 @@ cd ts && npm test
 
 ```ts
 new FilmSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -175,7 +173,6 @@ new FilmSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -288,7 +285,7 @@ API path: `/api/films`
 
 ### Film
 
-Create an instance: `const film = client.Film()`
+Create an instance: `const film = client.film`
 
 #### Operations
 
@@ -316,13 +313,13 @@ Create an instance: `const film = client.Film()`
 #### Example: Load
 
 ```ts
-const film = await client.Film().load({ id: 'film_id' })
+const film = await client.film.load({ id: 'film_id' })
 ```
 
 #### Example: List
 
 ```ts
-const films = await client.Film().list()
+const films = await client.film.list()
 ```
 
 
@@ -383,7 +380,7 @@ film/
 Import the SDK from the package root:
 
 ```ts
-import { FilmSDK } from 'film'
+import { FilmSDK } from '@voxgig-sdk/film'
 ```
 
 ### Entity state
@@ -393,11 +390,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const film = client.film
+await film.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// film.data() now returns the loaded film data
+// film.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

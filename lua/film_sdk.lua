@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:film():list() / client:film():load({ id = ... })
+function FilmSDK:film(data)
+  local EntityMod = require("entity.film_entity")
+  if data == nil then
+    if self._film == nil then
+      self._film = EntityMod.new(self, nil)
+    end
+    return self._film
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:film() instead.
 function FilmSDK:Film(data)
   local EntityMod = require("entity.film_entity")
   return EntityMod.new(self, data)

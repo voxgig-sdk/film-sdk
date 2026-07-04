@@ -120,7 +120,6 @@ function basicSetup(extra?: any) {
     'FILM_TEST_FILM_ENTID': idmap,
     'FILM_TEST_LIVE': 'FALSE',
     'FILM_TEST_EXPLAIN': 'FALSE',
-    'FILM_APIKEY': 'NONE',
   })
 
   idmap = env['FILM_TEST_FILM_ENTID']
@@ -130,7 +129,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new FilmSDK(merge([
       {
-        apikey: env.FILM_APIKEY,
       },
       extra
     ]))

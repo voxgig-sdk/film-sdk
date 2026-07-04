@@ -2,6 +2,8 @@
 
 import { FilmEntity } from './entity/FilmEntity'
 
+export type * from './FilmTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class FilmSDK {
 
 
 
+  _film?: FilmEntity
+
+  // Idiomatic facade: `client.film.list()` / `client.film.load({ id })`.
+  get film(): FilmEntity {
+    return (this._film ??= new FilmEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.film` instead. */
   Film(data?: any) {
     const self = this
     return new FilmEntity(self,data)

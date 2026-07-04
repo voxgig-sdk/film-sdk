@@ -194,14 +194,12 @@ func filmDirectSetup(mockres any) *filmDirectSetupResult {
 	env := envOverride(map[string]any{
 		"FILM_TEST_FILM_ENTID": map[string]any{},
 		"FILM_TEST_LIVE":    "FALSE",
-		"FILM_APIKEY":       "NONE",
 	})
 
 	live := env["FILM_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["FILM_APIKEY"],
 		}
 		client := sdk.NewFilmSDK(mergedOpts)
 

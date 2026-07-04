@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `FilmSDK.test()`.
 ## FilmEntity
 
 ```ts
-const film = client.Film()
+const film = client.film
 ```
 
 ### Fields
@@ -136,7 +135,7 @@ const film = client.Film()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.Film().list()
+const results = await client.film.list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -144,7 +143,7 @@ const results = await client.Film().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Film().load({ id: 'film_id' })
+const result = await client.film.load({ id: 'film_id' })
 ```
 
 ### Common Methods

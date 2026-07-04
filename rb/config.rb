@@ -15,9 +15,6 @@ module FilmConfig
       },
       "options" => {
         "base" => "https://filmapi.vercel.app",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -146,6 +143,7 @@ module FilmConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },
