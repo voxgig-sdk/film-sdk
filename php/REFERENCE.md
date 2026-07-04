@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## FilmEntity
 
 ```php
-$film = $client->film();
+$film = $client->Film();
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ $film = $client->film();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->film()->list([]);
+$results = $client->Film()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -119,7 +119,7 @@ $results = $client->film()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->film()->load(["id" => "film_id"]);
+$result = $client->Film()->load(["id" => "film_id"]);
 ```
 
 ### Common Methods

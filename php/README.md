@@ -29,18 +29,16 @@ require_once 'film_sdk.php';
 $client = new FilmSDK();
 ```
 
-### 2. List films
+### 2. List film records
 
 ```php
 try {
-    $result = $client->film()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Film records — iterate directly.
+    $films = $client->Film()->list();
+    foreach ($films as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -49,9 +47,10 @@ try {
 
 ```php
 try {
-    $result = $client->film()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Film record (throws on error).
+    $film = $client->Film()->load(["id" => "example_id"]);
+    print_r($film);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -97,13 +96,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = FilmSDK::test();
+$client = FilmSDK::test([
+    "entity" => ["film" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->film()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$film = $client->Film()->load(["id" => "test01"]);
+print_r($film);
 ```
 
 ### Use a custom fetch function
@@ -249,7 +252,7 @@ API path: `/api/films`
 
 ### Film
 
-Create an instance: `const film = client.film`
+Create an instance: `$film = $client->Film();`
 
 #### Operations
 
@@ -276,14 +279,16 @@ Create an instance: `const film = client.film`
 
 #### Example: Load
 
-```ts
-const film = await client.film.load({ id: 'film_id' })
+```php
+// load() returns the bare Film record (throws on error).
+$film = $client->Film()->load(["id" => "film_id"]);
 ```
 
 #### Example: List
 
-```ts
-const films = await client.film.list()
+```php
+// list() returns an array of Film records (throws on error).
+$films = $client->Film()->list();
 ```
 
 
@@ -358,7 +363,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$film = $client->film();
+$film = $client->Film();
 $film->load(["id" => "example_id"]);
 
 // $film->dataGet() now returns the loaded film data

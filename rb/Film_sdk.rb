@@ -208,13 +208,7 @@ class FilmSDK
   end
 
 
-  # Idiomatic facade: client.film.list / client.film.load({ "id" => ... })
-  def film
-    require_relative 'entity/film_entity'
-    @film ||= FilmEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.film instead.
+  # Canonical facade: client.Film.list / client.Film.load({ "id" => ... })
   def Film(data = nil)
     require_relative 'entity/film_entity'
     FilmEntity.new(self, data)

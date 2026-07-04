@@ -220,25 +220,15 @@ class FilmSDK:
         }
 
 
-    @property
-    def film(self):
-        """Idiomatic facade: client.film.list() / client.film.load({"id": ...})."""
-        from entity.film_entity import FilmEntity
-        cached = getattr(self, "_film", None)
-        if cached is None:
-            cached = FilmEntity(self, None)
-            self._film = cached
-        return cached
-
-    def Film(self, data=None):
-        # Deprecated: use client.film instead.
+    def Film(self, data=None) -> "FilmEntity":
+        """Entity factory: client.Film().list({}) / client.Film().load({"id": ...})."""
         from entity.film_entity import FilmEntity
         return FilmEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "FilmSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class FilmSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.film_entity import FilmEntity

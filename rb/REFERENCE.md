@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## FilmEntity
 
 ```ruby
-film = client.film
+film = client.Film
 ```
 
 ### Fields
@@ -112,7 +112,7 @@ film = client.film
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.film.list(nil)
+results = client.Film.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -120,7 +120,7 @@ results = client.film.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.film.load({ "id" => "film_id" })
+result = client.Film.load({ "id" => "film_id" })
 ```
 
 ### Common Methods

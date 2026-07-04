@@ -31,26 +31,26 @@ local sdk = require("film_sdk")
 local client = sdk.new()
 ```
 
-### 2. List films
+### 2. List film records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:film():list()
+local films, err = client:Film():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(films) do
+  print(item["id"], item["name"])
 end
 ```
 
 ### 3. Load a film
 
 ```lua
-local result, err = client:film():load({ id = "example_id" })
+local film, err = client:Film():load({ id = "example_id" })
 if err then error(err) end
-print(result)
+print(film)
 ```
 
 
@@ -96,8 +96,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:film():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:Film():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -197,17 +197,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local film, err = client:Film():load({ id = "example_id" })
+    if err then error(err) end
+    -- film is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -238,7 +243,7 @@ API path: `/api/films`
 
 ### Film
 
-Create an instance: `const film = client.film`
+Create an instance: `local film = client:Film(nil)`
 
 #### Operations
 
@@ -265,14 +270,14 @@ Create an instance: `const film = client.film`
 
 #### Example: Load
 
-```ts
-const film = await client.film.load({ id: 'film_id' })
+```lua
+local film, err = client:Film():load({ id = "film_id" })
 ```
 
 #### Example: List
 
-```ts
-const films = await client.film.list()
+```lua
+local films, err = client:Film():list()
 ```
 
 
@@ -347,7 +352,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local film = client:film()
+local film = client:Film()
 film:load({ id = "example_id" })
 
 -- film:data_get() now returns the loaded film data

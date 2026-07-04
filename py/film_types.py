@@ -4,44 +4,48 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Film:
+class FilmRequired(TypedDict):
     brand: str
     id: str
     iso: int
     model: str
     type: str
-    description: Optional[str] = None
-    format120: Optional[bool] = None
-    format35mm: Optional[bool] = None
-    image: Optional[str] = None
-    key_feature: Optional[list] = None
-    processing_type: Optional[str] = None
 
 
-@dataclass
-class FilmLoadMatch:
+class Film(FilmRequired, total=False):
+    description: str
+    format120: bool
+    format35mm: bool
+    image: str
+    key_feature: list
+    processing_type: str
+
+
+class FilmLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class FilmListMatch:
-    brand: Optional[str] = None
-    description: Optional[str] = None
-    format120: Optional[bool] = None
-    format35mm: Optional[bool] = None
-    id: Optional[str] = None
-    image: Optional[str] = None
-    iso: Optional[int] = None
-    key_feature: Optional[list] = None
-    model: Optional[str] = None
-    processing_type: Optional[str] = None
-    type: Optional[str] = None
-
+class FilmListMatch(TypedDict, total=False):
+    brand: str
+    description: str
+    format120: bool
+    format35mm: bool
+    id: str
+    image: str
+    iso: int
+    key_feature: list
+    model: str
+    processing_type: str
+    type: str

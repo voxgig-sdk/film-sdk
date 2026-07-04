@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## FilmEntity
 
 ```python
-film = client.film
+film = client.Film()
 ```
 
 ### Fields
@@ -106,7 +106,9 @@ film = client.film
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.film.list({})
+results = client.Film().list({})
+for film in results:
+    print(film)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -114,7 +116,7 @@ results = client.film.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.film.load({"id": "film_id"})
+result = client.Film().load({"id": "film_id"})
 ```
 
 ### Common Methods

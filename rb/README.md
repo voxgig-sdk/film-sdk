@@ -28,16 +28,14 @@ require_relative "Film_sdk"
 client = FilmSDK.new
 ```
 
-### 2. List films
+### 2. List film records
 
 ```ruby
 begin
-  result = client.film.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Film records — iterate directly.
+  films = client.Film.list
+  films.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,8 +46,9 @@ end
 
 ```ruby
 begin
-  result = client.film.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Film record (raises on error).
+  film = client.Film.load({ "id" => "example_id" })
+  puts film
 rescue => err
   warn "load failed: #{err}"
 end
@@ -96,13 +95,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = FilmSDK.test
+client = FilmSDK.test({
+  "entity" => { "film" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.film.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+film = client.Film.load({ "id" => "test01" })
+puts film
 ```
 
 ### Use a custom fetch function
@@ -244,7 +247,7 @@ API path: `/api/films`
 
 ### Film
 
-Create an instance: `const film = client.film`
+Create an instance: `film = client.Film`
 
 #### Operations
 
@@ -271,14 +274,16 @@ Create an instance: `const film = client.film`
 
 #### Example: Load
 
-```ts
-const film = await client.film.load({ id: 'film_id' })
+```ruby
+# load returns the bare Film record (raises on error).
+film = client.Film.load({ "id" => "film_id" })
 ```
 
 #### Example: List
 
-```ts
-const films = await client.film.list()
+```ruby
+# list returns an Array of Film records (raises on error).
+films = client.Film.list
 ```
 
 
@@ -353,7 +358,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-film = client.film
+film = client.Film
 film.load({ "id" => "example_id" })
 
 # film.data_get now returns the loaded film data

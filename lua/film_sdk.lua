@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:film():list() / client:film():load({ id = ... })
-function FilmSDK:film(data)
+-- Idiomatic facade: client:Film():list() / client:Film():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function FilmSDK:Film(data)
   local EntityMod = require("entity.film_entity")
   if data == nil then
     if self._film == nil then
@@ -253,12 +254,6 @@ function FilmSDK:film(data)
     end
     return self._film
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:film() instead.
-function FilmSDK:Film(data)
-  local EntityMod = require("entity.film_entity")
   return EntityMod.new(self, data)
 end
 

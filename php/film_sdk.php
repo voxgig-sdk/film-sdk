@@ -233,10 +233,10 @@ class FilmSDK
 
     private $_film = null;
 
-    // Idiomatic facade: $client->film()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Film() (PHP method
-    // names are case-insensitive).
-    public function film($data = null)
+    // Canonical facade: $client->Film()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->film()
+    // resolves here too.
+    public function Film($data = null)
     {
         require_once __DIR__ . '/entity/film_entity.php';
         if ($data === null) {

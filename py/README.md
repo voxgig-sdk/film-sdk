@@ -31,24 +31,28 @@ from film_sdk import FilmSDK
 client = FilmSDK()
 ```
 
-### 2. List films
+### 2. List film records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.film.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    films = client.Film().list({})
+    for film in films:
+        print(film)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load a film
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.film.load({"id": "example_id"})
-    print(result)
+    film = client.Film().load({"id": "example_id"})
+    print(film)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -96,8 +100,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = FilmSDK.test()
 
-result = client.film.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+film = client.Film().load({"id": "test01"})
+# film contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -240,7 +245,7 @@ API path: `/api/films`
 
 ### Film
 
-Create an instance: `const film = client.film`
+Create an instance: `film = client.Film()`
 
 #### Operations
 
@@ -267,14 +272,14 @@ Create an instance: `const film = client.film`
 
 #### Example: Load
 
-```ts
-const film = await client.film.load({ id: 'film_id' })
+```python
+film = client.Film().load({"id": "film_id"})
 ```
 
 #### Example: List
 
-```ts
-const films = await client.film.list()
+```python
+films = client.Film().list({})
 ```
 
 
@@ -348,7 +353,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-film = client.film
+film = client.Film()
 film.load({"id": "example_id"})
 
 # film.data_get() now returns the loaded film data

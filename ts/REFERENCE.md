@@ -109,7 +109,7 @@ Alias for `FilmSDK.test()`.
 ## FilmEntity
 
 ```ts
-const film = client.film
+const film = client.Film()
 ```
 
 ### Fields
@@ -135,7 +135,7 @@ const film = client.film
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.film.list()
+const results = await client.Film().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -143,7 +143,7 @@ const results = await client.film.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.film.load({ id: 'film_id' })
+const result = await client.Film().load({ id: 'film_id' })
 ```
 
 ### Common Methods

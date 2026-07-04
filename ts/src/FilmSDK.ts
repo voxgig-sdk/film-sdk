@@ -204,14 +204,7 @@ class FilmSDK {
 
 
 
-  _film?: FilmEntity
-
-  // Idiomatic facade: `client.film.list()` / `client.film.load({ id })`.
-  get film(): FilmEntity {
-    return (this._film ??= new FilmEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.film` instead. */
+  // Entity access: `client.Film().list()` / `client.Film().load({ id })`.
   Film(data?: any) {
     const self = this
     return new FilmEntity(self,data)

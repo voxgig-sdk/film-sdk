@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## FilmEntity
 
 ```lua
-local film = client:film(nil)
+local film = client:Film(nil)
 ```
 
 ### Fields
@@ -109,7 +109,7 @@ local film = client:film(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:film():list()
+local results, err = client:Film():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -117,7 +117,7 @@ local results, err = client:film():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:film():load({ id = "film_id" })
+local result, err = client:Film():load({ id = "film_id" })
 ```
 
 ### Common Methods
