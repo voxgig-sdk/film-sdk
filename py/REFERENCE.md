@@ -87,26 +87,26 @@ film = client.Film()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `format120` | ``$BOOLEAN`` | No |  |
-| `format35mm` | ``$BOOLEAN`` | No |  |
-| `id` | ``$STRING`` | Yes |  |
-| `image` | ``$STRING`` | No |  |
-| `iso` | ``$INTEGER`` | Yes |  |
-| `key_feature` | ``$ARRAY`` | No |  |
-| `model` | ``$STRING`` | Yes |  |
-| `processing_type` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | Yes |  |
+| `brand` | `str` | Yes |  |
+| `description` | `str` | No |  |
+| `format120` | `bool` | No |  |
+| `format35mm` | `bool` | No |  |
+| `id` | `str` | Yes |  |
+| `image` | `str` | No |  |
+| `iso` | `int` | Yes |  |
+| `key_feature` | `list` | No |  |
+| `model` | `str` | Yes |  |
+| `processing_type` | `str` | No |  |
+| `type` | `str` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Film().list({})
+results = client.Film().list()
 for film in results:
     print(film)
 ```

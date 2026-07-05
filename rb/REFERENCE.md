@@ -8,7 +8,7 @@ Complete API reference for the Film Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'film_sdk'
+require_relative 'Film_sdk'
 
 client = FilmSDK.new(options)
 ```
@@ -93,26 +93,26 @@ film = client.Film
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `format120` | ``$BOOLEAN`` | No |  |
-| `format35mm` | ``$BOOLEAN`` | No |  |
-| `id` | ``$STRING`` | Yes |  |
-| `image` | ``$STRING`` | No |  |
-| `iso` | ``$INTEGER`` | Yes |  |
-| `key_feature` | ``$ARRAY`` | No |  |
-| `model` | ``$STRING`` | Yes |  |
-| `processing_type` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | Yes |  |
+| `brand` | `String` | Yes |  |
+| `description` | `String` | No |  |
+| `format120` | `Boolean` | No |  |
+| `format35mm` | `Boolean` | No |  |
+| `id` | `String` | Yes |  |
+| `image` | `String` | No |  |
+| `iso` | `Integer` | Yes |  |
+| `key_feature` | `Array` | No |  |
+| `model` | `String` | Yes |  |
+| `processing_type` | `String` | No |  |
+| `type` | `String` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Film.list(nil)
+results = client.Film.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

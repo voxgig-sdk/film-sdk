@@ -34,7 +34,7 @@ class FilmLoadMatch
     public string $id;
 }
 
-/** Match filter for Film#list (any subset of Film fields). */
+/** Request payload for Film#list. */
 class FilmListMatch
 {
     public ?string $brand = null;

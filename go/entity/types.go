@@ -28,8 +28,7 @@ type FilmLoadMatch struct {
 	Id string `json:"id"`
 }
 
-// FilmListMatch mirrors the film fields as an all-optional match
-// filter (Go analog of Partial<Film>).
+// FilmListMatch is the typed request payload for Film.ListTyped.
 type FilmListMatch struct {
 	Brand *string `json:"brand,omitempty"`
 	Description *string `json:"description,omitempty"`

@@ -90,17 +90,17 @@ local film = client:Film(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `format120` | ``$BOOLEAN`` | No |  |
-| `format35mm` | ``$BOOLEAN`` | No |  |
-| `id` | ``$STRING`` | Yes |  |
-| `image` | ``$STRING`` | No |  |
-| `iso` | ``$INTEGER`` | Yes |  |
-| `key_feature` | ``$ARRAY`` | No |  |
-| `model` | ``$STRING`` | Yes |  |
-| `processing_type` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | Yes |  |
+| `brand` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `format120` | `boolean` | No |  |
+| `format35mm` | `boolean` | No |  |
+| `id` | `string` | Yes |  |
+| `image` | `string` | No |  |
+| `iso` | `number` | Yes |  |
+| `key_feature` | `table` | No |  |
+| `model` | `string` | Yes |  |
+| `processing_type` | `string` | No |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 

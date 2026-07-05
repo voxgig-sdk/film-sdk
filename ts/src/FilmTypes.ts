@@ -23,5 +23,17 @@ export interface FilmLoadMatch {
   id: string
 }
 
-export type FilmListMatch = Partial<Film>
+export interface FilmListMatch {
+  brand?: string
+  description?: string
+  format120?: boolean
+  format35mm?: boolean
+  id?: string
+  image?: string
+  iso?: number
+  key_feature?: any[]
+  model?: string
+  processing_type?: string
+  type?: string
+}
 

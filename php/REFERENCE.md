@@ -45,11 +45,11 @@ $client = FilmSDK::test();
 
 Create a new `FilmEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): FilmUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,26 +92,26 @@ $film = $client->Film();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `format120` | ``$BOOLEAN`` | No |  |
-| `format35mm` | ``$BOOLEAN`` | No |  |
-| `id` | ``$STRING`` | Yes |  |
-| `image` | ``$STRING`` | No |  |
-| `iso` | ``$INTEGER`` | Yes |  |
-| `key_feature` | ``$ARRAY`` | No |  |
-| `model` | ``$STRING`` | Yes |  |
-| `processing_type` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | Yes |  |
+| `brand` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `format120` | `bool` | No |  |
+| `format35mm` | `bool` | No |  |
+| `id` | `string` | Yes |  |
+| `image` | `string` | No |  |
+| `iso` | `int` | Yes |  |
+| `key_feature` | `array` | No |  |
+| `model` | `string` | Yes |  |
+| `processing_type` | `string` | No |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Film()->list([]);
+$results = $client->Film()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -124,19 +124,19 @@ $result = $client->Film()->load(["id" => "film_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -145,7 +145,7 @@ Set the entity match criteria.
 Create a new `FilmEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

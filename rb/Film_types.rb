@@ -66,7 +66,7 @@ FilmLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Film#list (any subset of Film fields).
+# Request payload for Film#list.
 #
 # @!attribute [rw] brand
 #   @return [String, nil]

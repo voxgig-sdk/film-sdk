@@ -23,6 +23,17 @@
 ---@field id string
 
 ---@class FilmListMatch
+---@field brand? string
+---@field description? string
+---@field format120? boolean
+---@field format35mm? boolean
+---@field id? string
+---@field image? string
+---@field iso? number
+---@field key_feature? table
+---@field model? string
+---@field processing_type? string
+---@field type? string
 
 local M = {}
 

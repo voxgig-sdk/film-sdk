@@ -221,7 +221,7 @@ class FilmSDK:
 
 
     def Film(self, data=None) -> "FilmEntity":
-        """Entity factory: client.Film().list({}) / client.Film().load({"id": ...})."""
+        """Entity factory: client.Film().list() / client.Film().load({"id": ...})."""
         from entity.film_entity import FilmEntity
         return FilmEntity(self, data)
 

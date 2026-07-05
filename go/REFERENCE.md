@@ -97,17 +97,17 @@ film := client.Film(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | ``$STRING`` | Yes |  |
-| `description` | ``$STRING`` | No |  |
-| `format120` | ``$BOOLEAN`` | No |  |
-| `format35mm` | ``$BOOLEAN`` | No |  |
-| `id` | ``$STRING`` | Yes |  |
-| `image` | ``$STRING`` | No |  |
-| `iso` | ``$INTEGER`` | Yes |  |
-| `key_feature` | ``$ARRAY`` | No |  |
-| `model` | ``$STRING`` | Yes |  |
-| `processing_type` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | Yes |  |
+| `brand` | `string` | Yes |  |
+| `description` | `string` | No |  |
+| `format120` | `bool` | No |  |
+| `format35mm` | `bool` | No |  |
+| `id` | `string` | Yes |  |
+| `image` | `string` | No |  |
+| `iso` | `int` | Yes |  |
+| `key_feature` | `[]any` | No |  |
+| `model` | `string` | Yes |  |
+| `processing_type` | `string` | No |  |
+| `type` | `string` | Yes |  |
 
 ### Operations
 
