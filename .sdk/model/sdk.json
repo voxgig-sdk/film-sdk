@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -314,14 +311,17 @@
           "url": "https://filmapi.vercel.app/"
         },
         "description": "Provides detailed information on various photo camera films in 35mm and 120 formats including brand name, film model, ISO, availability in different formats, black & white or color specification, processing type, image, film description, and key features.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://filmapi.vercel.app"
           }
         ],
+        "summary": "Provides detailed information on various photo camera films in 35mm and 120 formats including brand name, film model, ISO, availability in different formats, black & white or color specification, processing type, image, film description, a…",
         "title": "Film API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://filmapi.vercel.app"
       },
       "option": {},
       "target": {
@@ -374,6 +374,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -424,6 +427,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
