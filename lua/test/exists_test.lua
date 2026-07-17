@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Film SDK exists test
 
 local sdk = require("film_sdk")
 
