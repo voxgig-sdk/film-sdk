@@ -13,9 +13,9 @@ export interface Film {
   id: string
   image?: string
   iso: number
-  key_feature?: any[]
+  keyFeatures?: any[]
   model: string
-  processing_type?: string
+  processingType?: string
   type: string
 }
 
@@ -31,9 +31,9 @@ export interface FilmListMatch {
   id?: string
   image?: string
   iso?: number
-  key_feature?: any[]
+  keyFeatures?: any[]
   model?: string
-  processing_type?: string
+  processingType?: string
   type?: string
 }
 

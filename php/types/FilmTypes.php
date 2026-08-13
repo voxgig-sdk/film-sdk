@@ -22,9 +22,9 @@ class Film
     public string $id;
     public ?string $image = null;
     public int $iso;
-    public ?array $key_feature = null;
+    public ?array $keyFeatures = null;
     public string $model;
-    public ?string $processing_type = null;
+    public ?string $processingType = null;
     public string $type;
 }
 
@@ -44,9 +44,9 @@ class FilmListMatch
     public ?string $id = null;
     public ?string $image = null;
     public ?int $iso = null;
-    public ?array $key_feature = null;
+    public ?array $keyFeatures = null;
     public ?string $model = null;
-    public ?string $processing_type = null;
+    public ?string $processingType = null;
     public ?string $type = null;
 }
 

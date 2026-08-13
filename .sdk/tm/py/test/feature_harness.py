@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import FilmControl
-from core.error import FilmError
-from core.result import FilmResult
-from core.spec import FilmSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import FilmControl
+from projectname_sdk.core.error import FilmError
+from projectname_sdk.core.result import FilmResult
+from projectname_sdk.core.spec import FilmSpec
 
 
 # True when this SDK was generated with the named feature.

@@ -97,7 +97,7 @@ class FilmEntityTest extends TestCase
             "id" => $film_ref01_data["id"],
         ];
         $film_ref01_data_dt0_loaded = $film_ref01_ent->load($film_ref01_match_dt0, null);
-        $film_ref01_data_dt0_load_result = Helpers::to_map($film_ref01_data_dt0_loaded);
+        $film_ref01_data_dt0_load_result = Helpers::to_map(is_object($film_ref01_data_dt0_loaded) && method_exists($film_ref01_data_dt0_loaded, 'data_get') ? $film_ref01_data_dt0_loaded->data_get() : $film_ref01_data_dt0_loaded);
         $this->assertNotNull($film_ref01_data_dt0_load_result);
         $this->assertEquals($film_ref01_data_dt0_load_result["id"], $film_ref01_data["id"]);
 

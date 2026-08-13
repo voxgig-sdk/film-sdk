@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Film record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Film record (throws on error).
     $film = $client->Film()->load(["id" => "example_id"]);
     print_r($film);
 } catch (\Throwable $err) {
@@ -140,7 +140,8 @@ $client = FilmSDK::test([
     "entity" => ["film" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $film = $client->Film()->list();
 print_r($film);
 ```
@@ -240,7 +241,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -269,9 +270,9 @@ On error, `ok` is `false` and `$err` contains the error value.
 | `id` |  |
 | `image` |  |
 | `iso` |  |
-| `key_feature` |  |
+| `keyFeatures` |  |
 | `model` |  |
-| `processing_type` |  |
+| `processingType` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -305,15 +306,15 @@ Create an instance: `$film = $client->Film();`
 | `id` | `string` |  |
 | `image` | `string` |  |
 | `iso` | `int` |  |
-| `key_feature` | `array` |  |
+| `keyFeatures` | `array` |  |
 | `model` | `string` |  |
-| `processing_type` | `string` |  |
+| `processingType` | `string` |  |
 | `type` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Film record (throws on error).
+// load() returns the ENTITY — call data_get() for the Film record (throws on error).
 $film = $client->Film()->load(["id" => "film_id"]);
 ```
 

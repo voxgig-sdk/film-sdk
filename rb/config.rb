@@ -76,7 +76,7 @@ module FilmConfig
             },
             {
               "active" => true,
-              "name" => "key_feature",
+              "name" => "keyFeatures",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 7,
@@ -90,7 +90,7 @@ module FilmConfig
             },
             {
               "active" => true,
-              "name" => "processing_type",
+              "name" => "processingType",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 9,
@@ -112,6 +112,7 @@ module FilmConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/films",
                   "parts" => [
@@ -147,6 +148,7 @@ module FilmConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/films/{id}",
                   "parts" => [

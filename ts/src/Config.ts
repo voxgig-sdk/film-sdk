@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Film',
   }
 
 
@@ -105,7 +105,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "key_feature",
+          "name": "keyFeatures",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 7
@@ -119,7 +119,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "processing_type",
+          "name": "processingType",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -141,6 +141,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/api/films",
               "parts": [
@@ -176,6 +177,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/api/films/{id}",
               "parts": [

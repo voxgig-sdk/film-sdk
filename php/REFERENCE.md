@@ -99,9 +99,9 @@ $film = $client->Film();
 | `id` | `string` | Yes |  |
 | `image` | `string` | No |  |
 | `iso` | `int` | Yes |  |
-| `key_feature` | `array` | No |  |
+| `keyFeatures` | `array` | No |  |
 | `model` | `string` | Yes |  |
-| `processing_type` | `string` | No |  |
+| `processingType` | `string` | No |  |
 | `type` | `string` | Yes |  |
 
 ### Operations

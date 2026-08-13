@@ -94,9 +94,9 @@ film = client.Film()
 | `id` | `str` | Yes |  |
 | `image` | `str` | No |  |
 | `iso` | `int` | Yes |  |
-| `key_feature` | `list` | No |  |
+| `keyFeatures` | `list` | No |  |
 | `model` | `str` | Yes |  |
-| `processing_type` | `str` | No |  |
+| `processingType` | `str` | No |  |
 | `type` | `str` | Yes |  |
 
 ### Operations

@@ -81,7 +81,7 @@ class FilmConfig
             ],
             [
               'active' => true,
-              'name' => 'key_feature',
+              'name' => 'keyFeatures',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 7,
@@ -95,7 +95,7 @@ class FilmConfig
             ],
             [
               'active' => true,
-              'name' => 'processing_type',
+              'name' => 'processingType',
               'req' => false,
               'type' => '`$STRING`',
               'index$' => 9,
@@ -117,6 +117,7 @@ class FilmConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/films',
                   'parts' => [
@@ -152,6 +153,7 @@ class FilmConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/api/films/{id}',
                   'parts' => [

@@ -6,9 +6,9 @@ import time
 
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from film_sdk.utility.voxgig_struct import voxgig_struct as vs
 from film_sdk import FilmSDK
-from core import helpers
+from film_sdk.core import helpers
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
@@ -42,7 +42,7 @@ class TestFilmEntity:
         assert len(seen) == 3
 
         # Inbound: streaming active -> yields each item from the feature.
-        from config import make_config
+        from film_sdk.config import make_config
         cfg = make_config()
         if isinstance(cfg.get("feature"), dict) and "streaming" in cfg["feature"]:
             sdk = FilmSDK.test(
@@ -92,7 +92,7 @@ class TestFilmEntity:
             "id": film_ref01_data["id"],
         }
         film_ref01_data_dt0_loaded = film_ref01_ent.load(film_ref01_match_dt0, None)
-        film_ref01_data_dt0_load_result = helpers.to_map(film_ref01_data_dt0_loaded)
+        film_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(film_ref01_data_dt0_loaded))
         assert film_ref01_data_dt0_load_result is not None
         assert film_ref01_data_dt0_load_result["id"] == film_ref01_data["id"]
 

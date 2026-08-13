@@ -105,9 +105,9 @@ fmt.Println(film.GetName()) // "film"
 | `id` | `string` | Yes |  |
 | `image` | `string` | No |  |
 | `iso` | `int` | Yes |  |
-| `key_feature` | `[]any` | No |  |
+| `keyFeatures` | `[]any` | No |  |
 | `model` | `string` | Yes |  |
-| `processing_type` | `string` | No |  |
+| `processingType` | `string` | No |  |
 | `type` | `string` | Yes |  |
 
 ### Operations

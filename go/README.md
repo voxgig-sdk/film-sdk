@@ -276,9 +276,9 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | `"id"` |  |
 | `"image"` |  |
 | `"iso"` |  |
-| `"key_feature"` |  |
+| `"keyFeatures"` |  |
 | `"model"` |  |
-| `"processing_type"` |  |
+| `"processingType"` |  |
 | `"type"` |  |
 
 Operations: List, Load.
@@ -312,9 +312,9 @@ Create an instance: `film := client.Film(nil)`
 | `id` | `string` |  |
 | `image` | `string` |  |
 | `iso` | `int` |  |
-| `key_feature` | `[]any` |  |
+| `keyFeatures` | `[]any` |  |
 | `model` | `string` |  |
-| `processing_type` | `string` |  |
+| `processingType` | `string` |  |
 | `type` | `string` |  |
 
 #### Example: Load

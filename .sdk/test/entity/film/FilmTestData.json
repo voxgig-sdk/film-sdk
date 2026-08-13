@@ -9,9 +9,9 @@
         "id": "FILM00",
         "image": "s73",
         "iso": "s74",
-        "key_feature": [],
+        "keyFeatures": [],
         "model": "s76",
-        "processing_type": "s77",
+        "processingType": "s77",
         "type": "s78"
       },
       "FILM01": {
@@ -22,9 +22,9 @@
         "id": "FILM01",
         "image": "se1",
         "iso": "se2",
-        "key_feature": [],
+        "keyFeatures": [],
         "model": "se4",
-        "processing_type": "se5",
+        "processingType": "se5",
         "type": "se6"
       },
       "FILM02": {
@@ -35,9 +35,9 @@
         "id": "FILM02",
         "image": "s14f",
         "iso": "s150",
-        "key_feature": [],
+        "keyFeatures": [],
         "model": "s152",
-        "processing_type": "s153",
+        "processingType": "s153",
         "type": "s154"
       }
     }
@@ -51,9 +51,9 @@
         "format35mm": false,
         "image": "s1bd",
         "iso": "s1be",
-        "key_feature": [],
+        "keyFeatures": [],
         "model": "s1c0",
-        "processing_type": "s1c1",
+        "processingType": "s1c1",
         "type": "s1c2"
       }
     }

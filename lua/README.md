@@ -248,9 +248,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | `id` |  |
 | `image` |  |
 | `iso` |  |
-| `key_feature` |  |
+| `keyFeatures` |  |
 | `model` |  |
-| `processing_type` |  |
+| `processingType` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -284,9 +284,9 @@ Create an instance: `local film = client:Film(nil)`
 | `id` | `string` |  |
 | `image` | `string` |  |
 | `iso` | `number` |  |
-| `key_feature` | `table` |  |
+| `keyFeatures` | `table` |  |
 | `model` | `string` |  |
-| `processing_type` | `string` |  |
+| `processingType` | `string` |  |
 | `type` | `string` |  |
 
 #### Example: Load

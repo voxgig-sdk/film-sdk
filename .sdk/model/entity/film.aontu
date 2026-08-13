@@ -41,7 +41,7 @@ main: kit: entity: film: {
       type: "`$INTEGER`"
     }
     {
-      name: "key_feature"
+      name: "keyFeatures"
       req: false
       type: "`$ARRAY`"
     }
@@ -51,7 +51,7 @@ main: kit: entity: film: {
       type: "`$STRING`"
     }
     {
-      name: "processing_type"
+      name: "processingType"
       req: false
       type: "`$STRING`"
     }

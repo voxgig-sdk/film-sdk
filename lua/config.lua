@@ -75,7 +75,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "key_feature",
+            ["name"] = "keyFeatures",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 7,
@@ -89,7 +89,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "processing_type",
+            ["name"] = "processingType",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 9,
@@ -111,6 +111,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/films",
                 ["parts"] = {
@@ -146,6 +147,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/api/films/{id}",
                 ["parts"] = {

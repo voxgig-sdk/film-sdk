@@ -128,7 +128,7 @@ func TestFilmEntity(t *testing.T) {
 		if err != nil {
 			t.Fatalf("load failed: %v", err)
 		}
-		filmRef01DataDt0LoadResult := core.ToMapAny(filmRef01DataDt0Loaded)
+		filmRef01DataDt0LoadResult := core.ToMapAny(entityData(filmRef01DataDt0Loaded))
 		if filmRef01DataDt0LoadResult == nil {
 			t.Fatal("expected load result to be a map")
 		}

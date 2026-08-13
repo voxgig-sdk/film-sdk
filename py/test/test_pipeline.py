@@ -16,11 +16,11 @@
 import pytest
 
 from film_sdk import FilmSDK
-from core.error import FilmError
-from core.result import FilmResult
-from core.response import FilmResponse
-from core.spec import FilmSpec
-from feature.base_feature import FilmBaseFeature
+from film_sdk.core.error import FilmError
+from film_sdk.core.result import FilmResult
+from film_sdk.core.response import FilmResponse
+from film_sdk.core.spec import FilmSpec
+from film_sdk.feature.base_feature import FilmBaseFeature
 
 
 def _client():

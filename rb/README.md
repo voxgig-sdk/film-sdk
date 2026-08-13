@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Film record (raises on error).
+  # load returns the ENTITY — call data_get for the Film record (raises on error).
   film = client.Film.load({ "id" => "example_id" })
   puts film
 rescue => err
@@ -134,7 +134,8 @@ client = FilmSDK.test({
   "entity" => { "film" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 film = client.Film.list()
 puts film
 ```
@@ -259,9 +260,9 @@ returns a result `Hash` with these keys:
 | `id` |  |
 | `image` |  |
 | `iso` |  |
-| `key_feature` |  |
+| `keyFeatures` |  |
 | `model` |  |
-| `processing_type` |  |
+| `processingType` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -295,15 +296,15 @@ Create an instance: `film = client.Film`
 | `id` | `String` |  |
 | `image` | `String` |  |
 | `iso` | `Integer` |  |
-| `key_feature` | `Array` |  |
+| `keyFeatures` | `Array` |  |
 | `model` | `String` |  |
-| `processing_type` | `String` |  |
+| `processingType` | `String` |  |
 | `type` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Film record (raises on error).
+# load returns the ENTITY — call data_get for the Film record (raises on error).
 film = client.Film.load({ "id" => "film_id" })
 ```
 

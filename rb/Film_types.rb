@@ -31,13 +31,13 @@
 # @!attribute [rw] iso
 #   @return [Integer]
 #
-# @!attribute [rw] key_feature
+# @!attribute [rw] keyFeatures
 #   @return [Array, nil]
 #
 # @!attribute [rw] model
 #   @return [String]
 #
-# @!attribute [rw] processing_type
+# @!attribute [rw] processingType
 #   @return [String, nil]
 #
 # @!attribute [rw] type
@@ -50,9 +50,9 @@ Film = Struct.new(
   :id,
   :image,
   :iso,
-  :key_feature,
+  :keyFeatures,
   :model,
-  :processing_type,
+  :processingType,
   :type,
   keyword_init: true
 )
@@ -89,13 +89,13 @@ FilmLoadMatch = Struct.new(
 # @!attribute [rw] iso
 #   @return [Integer, nil]
 #
-# @!attribute [rw] key_feature
+# @!attribute [rw] keyFeatures
 #   @return [Array, nil]
 #
 # @!attribute [rw] model
 #   @return [String, nil]
 #
-# @!attribute [rw] processing_type
+# @!attribute [rw] processingType
 #   @return [String, nil]
 #
 # @!attribute [rw] type
@@ -108,9 +108,9 @@ FilmListMatch = Struct.new(
   :id,
   :image,
   :iso,
-  :key_feature,
+  :keyFeatures,
   :model,
-  :processing_type,
+  :processingType,
   :type,
   keyword_init: true
 )

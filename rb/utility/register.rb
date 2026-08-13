@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ FilmUtility.registrar = ->(u) {
   u.prepare_params = FilmUtilities::PrepareParams
   u.prepare_path = FilmUtilities::PreparePath
   u.prepare_query = FilmUtilities::PrepareQuery
+  u.graphql_body = FilmUtilities::GraphqlBody
+  u.graphql_errors = FilmUtilities::GraphqlErrors
   u.result_basic = FilmUtilities::ResultBasic
   u.result_body = FilmUtilities::ResultBody
   u.result_headers = FilmUtilities::ResultHeaders

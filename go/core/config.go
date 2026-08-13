@@ -75,7 +75,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "key_feature",
+						"name": "keyFeatures",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 7,
@@ -89,7 +89,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "processing_type",
+						"name": "processingType",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 9,
@@ -111,6 +111,7 @@ func MakeConfig() map[string]any {
 							map[string]any{
 								"active": true,
 								"args": map[string]any{},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/films",
 								"parts": []any{
@@ -125,7 +126,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -146,6 +146,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/api/films/{id}",
 								"parts": []any{
@@ -165,7 +166,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

@@ -35,7 +35,9 @@ const client = new FilmSDK()
 
 ### 2. List film records
 
-`list()` resolves to an array of Film objects — iterate it directly:
+`list()` resolves to an array of Film ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const films = await client.Film().list()
@@ -133,7 +135,8 @@ Create a mock client for unit testing — no server required:
 const client = FilmSDK.test()
 
 const film = await client.Film().list()
-// film is a bare entity populated with mock response data
+// film is the entity, populated with mock response data
+// — call film.data() for the record itself
 console.log(film)
 ```
 
@@ -306,9 +309,9 @@ The `prepare()` method returns:
 | `id` |  |
 | `image` |  |
 | `iso` |  |
-| `key_feature` |  |
+| `keyFeatures` |  |
 | `model` |  |
-| `processing_type` |  |
+| `processingType` |  |
 | `type` |  |
 
 Operations: list, load.
@@ -342,9 +345,9 @@ Create an instance: `const film = client.Film()`
 | `id` | `string` |  |
 | `image` | `string` |  |
 | `iso` | `number` |  |
-| `key_feature` | `any[]` |  |
+| `keyFeatures` | `any[]` |  |
 | `model` | `string` |  |
-| `processing_type` | `string` |  |
+| `processingType` | `string` |  |
 | `type` | `string` |  |
 
 #### Example: Load

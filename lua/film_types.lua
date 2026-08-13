@@ -14,9 +14,9 @@
 ---@field id string
 ---@field image? string
 ---@field iso number
----@field key_feature? table
+---@field keyFeatures? table
 ---@field model string
----@field processing_type? string
+---@field processingType? string
 ---@field type string
 
 ---@class FilmLoadMatch
@@ -30,9 +30,9 @@
 ---@field id? string
 ---@field image? string
 ---@field iso? number
----@field key_feature? table
+---@field keyFeatures? table
 ---@field model? string
----@field processing_type? string
+---@field processingType? string
 ---@field type? string
 
 local M = {}

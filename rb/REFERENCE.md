@@ -100,9 +100,9 @@ film = client.Film
 | `id` | `String` | Yes |  |
 | `image` | `String` | No |  |
 | `iso` | `Integer` | Yes |  |
-| `key_feature` | `Array` | No |  |
+| `keyFeatures` | `Array` | No |  |
 | `model` | `String` | Yes |  |
-| `processing_type` | `String` | No |  |
+| `processingType` | `String` | No |  |
 | `type` | `String` | Yes |  |
 
 ### Operations

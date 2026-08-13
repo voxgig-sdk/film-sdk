@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ FilmUtility::setRegistrar(function (FilmUtility $u): void {
     $u->prepare_params = [FilmPrepareParams::class, 'call'];
     $u->prepare_path = [FilmPreparePath::class, 'call'];
     $u->prepare_query = [FilmPrepareQuery::class, 'call'];
+    $u->graphql_body = [FilmGraphql::class, 'body'];
+    $u->graphql_errors = [FilmGraphql::class, 'errors'];
     $u->result_basic = [FilmResultBasic::class, 'call'];
     $u->result_body = [FilmResultBody::class, 'call'];
     $u->result_headers = [FilmResultHeaders::class, 'call'];

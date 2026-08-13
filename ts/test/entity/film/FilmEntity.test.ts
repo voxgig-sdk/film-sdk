@@ -63,13 +63,13 @@ describe('FilmEntity', async () => {
     const film_ref01_ent = client.Film()
     const film_ref01_match: any = {}
 
-    const film_ref01_list = await film_ref01_ent.list(film_ref01_match)
+    const film_ref01_list = (await film_ref01_ent.list(film_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const film_ref01_match_dt0: any = {}
     film_ref01_match_dt0.id = film_ref01_data.id
-    const film_ref01_data_dt0 = await film_ref01_ent.load(film_ref01_match_dt0)
+    const film_ref01_data_dt0 = (await film_ref01_ent.load(film_ref01_match_dt0)).data()
     assert(film_ref01_data_dt0.id === film_ref01_data.id)
 
 

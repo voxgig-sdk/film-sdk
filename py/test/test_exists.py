@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Film SDK exists test
 
 import pytest
 from film_sdk import FilmSDK

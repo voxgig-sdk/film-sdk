@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = FilmSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = FilmSDK.test({
+  entity: {
+    film: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const films = await client.Film().list()
-// films is an array of bare Film records populated with mock data
+// films is an array of Film entities, populated with mock data
+// — call films[0].data() for the record itself
 console.log(films)
 ```
 
@@ -110,7 +119,7 @@ import { FilmSDK } from '@voxgig-sdk/film'
 
 const client = new FilmSDK()
 
-// List all films (returns Film[])
+// List all films (returns FilmEntity[] — .data() for the record)
 const films = await client.Film().list()
 for (const film of films) {
   console.log(film)
@@ -191,7 +200,7 @@ $client = new FilmSDK();
 $films = $client->Film()->list();
 print_r($films);
 
-// Load a specific film (returns the bare record; throws on error)
+// Load a specific film (returns the ENTITY; call data_get() for the record; throws on error)
 $film = $client->Film()->load(["id" => "example_id"]);
 print_r($film);
 ```
@@ -222,7 +231,7 @@ client = FilmSDK.new
 films = client.Film.list
 puts films
 
-# Load a specific film (returns the bare record; raises on error)
+# Load a specific film (returns the ENTITY; call data_get for the record)
 film = client.Film.load({ "id" => "example_id" })
 puts film
 ```
@@ -359,6 +368,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://filmapi.vercel.app/](https://filmapi.vercel.app/)
 

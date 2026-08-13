@@ -87,7 +87,7 @@ class FilmEntityTest < Minitest::Test
       "id" => film_ref01_data["id"],
     }
     film_ref01_data_dt0_loaded = film_ref01_ent.load(film_ref01_match_dt0, nil)
-    film_ref01_data_dt0_load_result = Helpers.to_map(film_ref01_data_dt0_loaded)
+    film_ref01_data_dt0_load_result = Helpers.to_map(film_ref01_data_dt0_loaded.respond_to?(:data_get) ? film_ref01_data_dt0_loaded.data_get : film_ref01_data_dt0_loaded)
     assert !film_ref01_data_dt0_load_result.nil?
     assert_equal film_ref01_data_dt0_load_result["id"], film_ref01_data["id"]
 
