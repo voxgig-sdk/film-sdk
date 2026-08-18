@@ -40,7 +40,7 @@ class FilmSDK
         $utility = new FilmUtility();
         $this->_utility = $utility;
 
-        $config = FilmConfig::make_config();
+        $config = FilmConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

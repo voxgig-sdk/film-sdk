@@ -23,8 +23,8 @@ class FilmSDK:
         utility = FilmUtility()
         self._utility = utility
 
-        from film_sdk.config import make_config
-        config = make_config()
+        from film_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,
