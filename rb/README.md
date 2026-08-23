@@ -253,17 +253,17 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `brand` |  |
-| `description` |  |
-| `format120` |  |
-| `format35mm` |  |
-| `id` |  |
-| `image` |  |
-| `iso` |  |
-| `keyFeatures` |  |
-| `model` |  |
-| `processingType` |  |
-| `type` |  |
+| `brand` | Brand name of the film manufacturer |
+| `description` | Detailed description of the film |
+| `format120` | Indicates if the film is available in 120 format |
+| `format35mm` | Indicates if the film is available in 35mm format |
+| `id` | Unique identifier for the film |
+| `image` | URL to an image of the film |
+| `iso` | ISO rating of the film |
+| `keyFeatures` | List of key features and characteristics of the film |
+| `model` | Film model name |
+| `processingType` | Type of chemical processing required for the film |
+| `type` | Specifies whether the film is color or black and white |
 
 Operations: List, Load.
 
@@ -289,17 +289,17 @@ Create an instance: `film = client.Film`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `brand` | `String` |  |
-| `description` | `String` |  |
-| `format120` | `Boolean` |  |
-| `format35mm` | `Boolean` |  |
-| `id` | `String` |  |
-| `image` | `String` |  |
-| `iso` | `Integer` |  |
-| `keyFeatures` | `Array` |  |
-| `model` | `String` |  |
-| `processingType` | `String` |  |
-| `type` | `String` |  |
+| `brand` | `String` | Brand name of the film manufacturer |
+| `description` | `String` | Detailed description of the film |
+| `format120` | `Boolean` | Indicates if the film is available in 120 format |
+| `format35mm` | `Boolean` | Indicates if the film is available in 35mm format |
+| `id` | `String` | Unique identifier for the film |
+| `image` | `String` | URL to an image of the film |
+| `iso` | `Integer` | ISO rating of the film |
+| `keyFeatures` | `Array` | List of key features and characteristics of the film |
+| `model` | `String` | Film model name |
+| `processingType` | `String` | Type of chemical processing required for the film |
+| `type` | `String` | Specifies whether the film is color or black and white |
 
 #### Example: Load
 

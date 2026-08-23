@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Film",
+			"slug": "film",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,50 +37,61 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "brand",
 						"req": true,
+						"short": "Brand name of the film manufacturer",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Detailed description of the film",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "format120",
+						"short": "Indicates if the film is available in 120 format",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "format35mm",
+						"short": "Indicates if the film is available in 35mm format",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "Unique identifier for the film",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "image",
+						"short": "URL to an image of the film",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "iso",
 						"req": true,
+						"short": "ISO rating of the film",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "keyFeatures",
+						"short": "List of key features and characteristics of the film",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "model",
 						"req": true,
+						"short": "Film model name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "processingType",
+						"short": "Type of chemical processing required for the film",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
 						"req": true,
+						"short": "Specifies whether the film is color or black and white",
 						"type": "`$STRING`",
 					},
 				},

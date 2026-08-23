@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Film',
+        slug: "film",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -57,50 +68,61 @@ class Config {
         {
           "name": "brand",
           "req": true,
+          "short": "Brand name of the film manufacturer",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Detailed description of the film",
           "type": "`$STRING`"
         },
         {
           "name": "format120",
+          "short": "Indicates if the film is available in 120 format",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "format35mm",
+          "short": "Indicates if the film is available in 35mm format",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "id",
           "req": true,
+          "short": "Unique identifier for the film",
           "type": "`$STRING`"
         },
         {
           "name": "image",
+          "short": "URL to an image of the film",
           "type": "`$STRING`"
         },
         {
           "name": "iso",
           "req": true,
+          "short": "ISO rating of the film",
           "type": "`$INTEGER`"
         },
         {
           "name": "keyFeatures",
+          "short": "List of key features and characteristics of the film",
           "type": "`$ARRAY`"
         },
         {
           "name": "model",
           "req": true,
+          "short": "Film model name",
           "type": "`$STRING`"
         },
         {
           "name": "processingType",
+          "short": "Type of chemical processing required for the film",
           "type": "`$STRING`"
         },
         {
           "name": "type",
           "req": true,
+          "short": "Specifies whether the film is color or black and white",
           "type": "`$STRING`"
         }
       ],

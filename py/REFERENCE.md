@@ -87,17 +87,17 @@ film = client.Film()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | `str` | Yes |  |
-| `description` | `str` | No |  |
-| `format120` | `bool` | No |  |
-| `format35mm` | `bool` | No |  |
-| `id` | `str` | Yes |  |
-| `image` | `str` | No |  |
-| `iso` | `int` | Yes |  |
-| `keyFeatures` | `list` | No |  |
-| `model` | `str` | Yes |  |
-| `processingType` | `str` | No |  |
-| `type` | `str` | Yes |  |
+| `brand` | `str` | Yes | Brand name of the film manufacturer |
+| `description` | `str` | No | Detailed description of the film |
+| `format120` | `bool` | No | Indicates if the film is available in 120 format |
+| `format35mm` | `bool` | No | Indicates if the film is available in 35mm format |
+| `id` | `str` | Yes | Unique identifier for the film |
+| `image` | `str` | No | URL to an image of the film |
+| `iso` | `int` | Yes | ISO rating of the film |
+| `keyFeatures` | `list` | No | List of key features and characteristics of the film |
+| `model` | `str` | Yes | Film model name |
+| `processingType` | `str` | No | Type of chemical processing required for the film |
+| `type` | `str` | Yes | Specifies whether the film is color or black and white |
 
 ### Operations
 

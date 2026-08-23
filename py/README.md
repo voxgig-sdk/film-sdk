@@ -256,17 +256,17 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `brand` |  |
-| `description` |  |
-| `format120` |  |
-| `format35mm` |  |
-| `id` |  |
-| `image` |  |
-| `iso` |  |
-| `keyFeatures` |  |
-| `model` |  |
-| `processingType` |  |
-| `type` |  |
+| `brand` | Brand name of the film manufacturer |
+| `description` | Detailed description of the film |
+| `format120` | Indicates if the film is available in 120 format |
+| `format35mm` | Indicates if the film is available in 35mm format |
+| `id` | Unique identifier for the film |
+| `image` | URL to an image of the film |
+| `iso` | ISO rating of the film |
+| `keyFeatures` | List of key features and characteristics of the film |
+| `model` | Film model name |
+| `processingType` | Type of chemical processing required for the film |
+| `type` | Specifies whether the film is color or black and white |
 
 Operations: List, Load.
 
@@ -292,17 +292,17 @@ Create an instance: `film = client.Film()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `brand` | `str` |  |
-| `description` | `str` |  |
-| `format120` | `bool` |  |
-| `format35mm` | `bool` |  |
-| `id` | `str` |  |
-| `image` | `str` |  |
-| `iso` | `int` |  |
-| `keyFeatures` | `list` |  |
-| `model` | `str` |  |
-| `processingType` | `str` |  |
-| `type` | `str` |  |
+| `brand` | `str` | Brand name of the film manufacturer |
+| `description` | `str` | Detailed description of the film |
+| `format120` | `bool` | Indicates if the film is available in 120 format |
+| `format35mm` | `bool` | Indicates if the film is available in 35mm format |
+| `id` | `str` | Unique identifier for the film |
+| `image` | `str` | URL to an image of the film |
+| `iso` | `int` | ISO rating of the film |
+| `keyFeatures` | `list` | List of key features and characteristics of the film |
+| `model` | `str` | Film model name |
+| `processingType` | `str` | Type of chemical processing required for the film |
+| `type` | `str` | Specifies whether the film is color or black and white |
 
 #### Example: Load
 

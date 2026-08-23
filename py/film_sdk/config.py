@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Film",
+            "slug": "film",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,50 +54,61 @@ def make_config():
           {
             "name": "brand",
             "req": True,
+            "short": "Brand name of the film manufacturer",
             "type": "`$STRING`",
           },
           {
             "name": "description",
+            "short": "Detailed description of the film",
             "type": "`$STRING`",
           },
           {
             "name": "format120",
+            "short": "Indicates if the film is available in 120 format",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "format35mm",
+            "short": "Indicates if the film is available in 35mm format",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "id",
             "req": True,
+            "short": "Unique identifier for the film",
             "type": "`$STRING`",
           },
           {
             "name": "image",
+            "short": "URL to an image of the film",
             "type": "`$STRING`",
           },
           {
             "name": "iso",
             "req": True,
+            "short": "ISO rating of the film",
             "type": "`$INTEGER`",
           },
           {
             "name": "keyFeatures",
+            "short": "List of key features and characteristics of the film",
             "type": "`$ARRAY`",
           },
           {
             "name": "model",
             "req": True,
+            "short": "Film model name",
             "type": "`$STRING`",
           },
           {
             "name": "processingType",
+            "short": "Type of chemical processing required for the film",
             "type": "`$STRING`",
           },
           {
             "name": "type",
             "req": True,
+            "short": "Specifies whether the film is color or black and white",
             "type": "`$STRING`",
           },
         ],

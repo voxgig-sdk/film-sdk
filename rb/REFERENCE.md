@@ -93,17 +93,17 @@ film = client.Film
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | `String` | Yes |  |
-| `description` | `String` | No |  |
-| `format120` | `Boolean` | No |  |
-| `format35mm` | `Boolean` | No |  |
-| `id` | `String` | Yes |  |
-| `image` | `String` | No |  |
-| `iso` | `Integer` | Yes |  |
-| `keyFeatures` | `Array` | No |  |
-| `model` | `String` | Yes |  |
-| `processingType` | `String` | No |  |
-| `type` | `String` | Yes |  |
+| `brand` | `String` | Yes | Brand name of the film manufacturer |
+| `description` | `String` | No | Detailed description of the film |
+| `format120` | `Boolean` | No | Indicates if the film is available in 120 format |
+| `format35mm` | `Boolean` | No | Indicates if the film is available in 35mm format |
+| `id` | `String` | Yes | Unique identifier for the film |
+| `image` | `String` | No | URL to an image of the film |
+| `iso` | `Integer` | Yes | ISO rating of the film |
+| `keyFeatures` | `Array` | No | List of key features and characteristics of the film |
+| `model` | `String` | Yes | Film model name |
+| `processingType` | `String` | No | Type of chemical processing required for the film |
+| `type` | `String` | Yes | Specifies whether the film is color or black and white |
 
 ### Operations
 

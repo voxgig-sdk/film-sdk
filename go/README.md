@@ -6,7 +6,7 @@ The Golang SDK for the Film API — an entity-oriented client using standard Go 
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Film(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -269,17 +269,17 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"brand"` |  |
-| `"description"` |  |
-| `"format120"` |  |
-| `"format35mm"` |  |
-| `"id"` |  |
-| `"image"` |  |
-| `"iso"` |  |
-| `"keyFeatures"` |  |
-| `"model"` |  |
-| `"processingType"` |  |
-| `"type"` |  |
+| `"brand"` | Brand name of the film manufacturer |
+| `"description"` | Detailed description of the film |
+| `"format120"` | Indicates if the film is available in 120 format |
+| `"format35mm"` | Indicates if the film is available in 35mm format |
+| `"id"` | Unique identifier for the film |
+| `"image"` | URL to an image of the film |
+| `"iso"` | ISO rating of the film |
+| `"keyFeatures"` | List of key features and characteristics of the film |
+| `"model"` | Film model name |
+| `"processingType"` | Type of chemical processing required for the film |
+| `"type"` | Specifies whether the film is color or black and white |
 
 Operations: List, Load.
 
@@ -305,17 +305,17 @@ Create an instance: `film := client.Film(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `brand` | `string` |  |
-| `description` | `string` |  |
-| `format120` | `bool` |  |
-| `format35mm` | `bool` |  |
-| `id` | `string` |  |
-| `image` | `string` |  |
-| `iso` | `int` |  |
-| `keyFeatures` | `[]any` |  |
-| `model` | `string` |  |
-| `processingType` | `string` |  |
-| `type` | `string` |  |
+| `brand` | `string` | Brand name of the film manufacturer |
+| `description` | `string` | Detailed description of the film |
+| `format120` | `bool` | Indicates if the film is available in 120 format |
+| `format35mm` | `bool` | Indicates if the film is available in 35mm format |
+| `id` | `string` | Unique identifier for the film |
+| `image` | `string` | URL to an image of the film |
+| `iso` | `int` | ISO rating of the film |
+| `keyFeatures` | `[]any` | List of key features and characteristics of the film |
+| `model` | `string` | Film model name |
+| `processingType` | `string` | Type of chemical processing required for the film |
+| `type` | `string` | Specifies whether the film is color or black and white |
 
 #### Example: Load
 

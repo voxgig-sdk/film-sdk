@@ -116,17 +116,17 @@ const film = client.Film()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `brand` | `string` | Yes |  |
-| `description` | `string` | No |  |
-| `format120` | `boolean` | No |  |
-| `format35mm` | `boolean` | No |  |
-| `id` | `string` | Yes |  |
-| `image` | `string` | No |  |
-| `iso` | `number` | Yes |  |
-| `keyFeatures` | `any[]` | No |  |
-| `model` | `string` | Yes |  |
-| `processingType` | `string` | No |  |
-| `type` | `string` | Yes |  |
+| `brand` | `string` | Yes | Brand name of the film manufacturer |
+| `description` | `string` | No | Detailed description of the film |
+| `format120` | `boolean` | No | Indicates if the film is available in 120 format |
+| `format35mm` | `boolean` | No | Indicates if the film is available in 35mm format |
+| `id` | `string` | Yes | Unique identifier for the film |
+| `image` | `string` | No | URL to an image of the film |
+| `iso` | `number` | Yes | ISO rating of the film |
+| `keyFeatures` | `any[]` | No | List of key features and characteristics of the film |
+| `model` | `string` | Yes | Film model name |
+| `processingType` | `string` | No | Type of chemical processing required for the film |
+| `type` | `string` | Yes | Specifies whether the film is color or black and white |
 
 ### Operations
 
