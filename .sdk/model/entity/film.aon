@@ -36,6 +36,7 @@ main: kit: entity: film: {
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "image"
       req: false
       short: "URL to an image of the film"
@@ -86,9 +87,13 @@ main: kit: entity: film: {
         {
           method: "GET"
           orig: "/api/films"
-          parts: [
-            "api"
-            "films"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "films"
+            }
           ]
           transform: {
             req: "`reqdata`"
@@ -114,10 +119,16 @@ main: kit: entity: film: {
           }
           method: "GET"
           orig: "/api/films/{id}"
-          parts: [
-            "api"
-            "films"
-            "{id}"
+          segments: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "films"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

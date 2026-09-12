@@ -71,6 +71,7 @@ module FilmConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "image",
               "short" => "URL to an image of the film",
               "type" => "`$STRING`",
@@ -104,6 +105,10 @@ module FilmConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "film",
           "op" => {
             "list" => {
@@ -115,15 +120,23 @@ module FilmConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/films",
-                  "parts" => [
-                    "api",
-                    "films",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "films",
+                    },
                   ],
                   "select" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "films",
+                  ],
                 },
               ],
             },
@@ -146,10 +159,16 @@ module FilmConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/api/films/{id}",
-                  "parts" => [
-                    "api",
-                    "films",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "api",
+                    },
+                    {
+                      "lit" => "films",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -160,6 +179,11 @@ module FilmConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "api",
+                    "films",
+                    "{id}",
+                  ],
                 },
               ],
             },
