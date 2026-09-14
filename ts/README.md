@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { FilmSDK } from '@voxgig-sdk/film'
+import { FilmSDK } from '@voxgig-sdk/film-sdk'
 
 const client = new FilmSDK()
 ```
@@ -445,7 +445,7 @@ film/
 Import the SDK from the package root:
 
 ```ts
-import { FilmSDK } from '@voxgig-sdk/film'
+import { FilmSDK } from '@voxgig-sdk/film-sdk'
 ```
 
 ### Entity state
