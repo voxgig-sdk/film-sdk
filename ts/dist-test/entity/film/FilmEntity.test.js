@@ -40,6 +40,8 @@ const node_path_1 = __importDefault(require("node:path"));
 const Fs = __importStar(require("node:fs"));
 const node_test_1 = require("node:test");
 const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
 const __1 = require("../../..");
 const utility_1 = require("../../utility");
 // AFTER the imports on purpose: TypeScript hoists `import` above any
@@ -59,16 +61,12 @@ const utility_1 = require("../../utility");
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.FILM_TEST_LIVE;
         for (const op of ['list', 'load']) {
-            if ((0, utility_1.maybeSkipControl)(t, 'entityOp', 'film.' + op, live))
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'film.' + op, live))
                 return;
         }
         const setup = basicSetup();
-        // The basic flow consumes synthetic IDs and field values from the
-        // fixture (entity TestData.json). Those don't exist on the live API.
-        // Skip live runs unless the user provided a real ENTID env override.
-        if (setup.syntheticOnly) {
-            t.skip('live entity test uses synthetic IDs from fixture — set FILM_TEST_FILM_ENTID JSON to run live');
-            return;
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": [{ "active": true, "name": "brand", "req": true, "short": "Brand name of the film manufacturer", "type": "`$STRING`", "index$": 0 }, { "active": true, "name": "description", "req": false, "short": "Detailed description of the film", "type": "`$STRING`", "index$": 1 }, { "active": true, "name": "format120", "req": false, "short": "Indicates if the film is available in 120 format", "type": "`$BOOLEAN`", "index$": 2 }, { "active": true, "name": "format35mm", "req": false, "short": "Indicates if the film is available in 35mm format", "type": "`$BOOLEAN`", "index$": 3 }, { "active": true, "name": "id", "req": true, "short": "Unique identifier for the film", "type": "`$STRING`", "index$": 4 }, { "active": true, "format": "uri", "name": "image", "req": false, "short": "URL to an image of the film", "type": "`$STRING`", "index$": 5 }, { "active": true, "name": "iso", "req": true, "short": "ISO rating of the film", "type": "`$INTEGER`", "index$": 6 }, { "active": true, "name": "keyFeatures", "req": false, "short": "List of key features and characteristics of the film", "type": "`$ARRAY`", "index$": 7 }, { "active": true, "name": "model", "req": true, "short": "Film model name", "type": "`$STRING`", "index$": 8 }, { "active": true, "name": "processingType", "req": false, "short": "Type of chemical processing required for the film", "type": "`$STRING`", "index$": 9 }, { "active": true, "name": "type", "req": true, "short": "Specifies whether the film is color or black and white", "type": "`$STRING`", "index$": 10 }], "id": { "field": "id", "name": "id" }, "name": "film", "op": { "list": { "input": "data", "name": "list", "points": [{ "active": true, "args": {}, "contract": { "id": "GET /api/films", "json": "{\"operationId\":\"getAllFilms\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"brand\":{\"description\":\"Brand name of the film manufacturer\",\"example\":\"Kodak\",\"type\":\"string\"},\"description\":{\"description\":\"Detailed description of the film\",\"type\":\"string\"},\"format120\":{\"description\":\"Indicates if the film is available in 120 format\",\"type\":\"boolean\"},\"format35mm\":{\"description\":\"Indicates if the film is available in 35mm format\",\"type\":\"boolean\"},\"id\":{\"description\":\"Unique identifier for the film\",\"type\":\"string\"},\"image\":{\"description\":\"URL to an image of the film\",\"format\":\"uri\",\"type\":\"string\"},\"iso\":{\"description\":\"ISO rating of the film\",\"example\":400,\"type\":\"integer\"},\"keyFeatures\":{\"description\":\"List of key features and characteristics of the film\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"model\":{\"description\":\"Film model name\",\"example\":\"Portra 400\",\"type\":\"string\"},\"processingType\":{\"description\":\"Type of chemical processing required for the film\",\"example\":\"C-41\",\"type\":\"string\"},\"type\":{\"description\":\"Specifies whether the film is color or black and white\",\"enum\":[\"color\",\"black_and_white\"],\"type\":\"string\"}},\"required\":[\"id\",\"brand\",\"model\",\"iso\",\"type\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with list of films\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/api/films", "segments": [{ "lit": "api" }, { "lit": "films" }], "select": {}, "transform": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" }, "load": { "input": "data", "name": "load", "points": [{ "active": true, "args": { "params": [{ "active": true, "kind": "param", "name": "id", "orig": "id", "reqd": true, "type": "`$STRING`", "index$": 0 }] }, "contract": { "id": "GET /api/films/{id}", "json": "{\"operationId\":\"getFilmById\",\"parameters\":[{\"description\":\"Unique identifier of the film\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"brand\":{\"description\":\"Brand name of the film manufacturer\",\"example\":\"Kodak\",\"type\":\"string\"},\"description\":{\"description\":\"Detailed description of the film\",\"type\":\"string\"},\"format120\":{\"description\":\"Indicates if the film is available in 120 format\",\"type\":\"boolean\"},\"format35mm\":{\"description\":\"Indicates if the film is available in 35mm format\",\"type\":\"boolean\"},\"id\":{\"description\":\"Unique identifier for the film\",\"type\":\"string\"},\"image\":{\"description\":\"URL to an image of the film\",\"format\":\"uri\",\"type\":\"string\"},\"iso\":{\"description\":\"ISO rating of the film\",\"example\":400,\"type\":\"integer\"},\"keyFeatures\":{\"description\":\"List of key features and characteristics of the film\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"model\":{\"description\":\"Film model name\",\"example\":\"Portra 400\",\"type\":\"string\"},\"processingType\":{\"description\":\"Type of chemical processing required for the film\",\"example\":\"C-41\",\"type\":\"string\"},\"type\":{\"description\":\"Specifies whether the film is color or black and white\",\"enum\":[\"color\",\"black_and_white\"],\"type\":\"string\"}},\"required\":[\"id\",\"brand\",\"model\",\"iso\",\"type\"],\"type\":\"object\"}}},\"description\":\"Successful response with film details\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Film not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}", "source": "openapi3", "version": 1 }, "kind": "http", "method": "GET", "orig": "/api/films/{id}", "segments": [{ "lit": "api" }, { "lit": "films" }, { "var": "id" }], "select": { "exist": ["id"] }, "transform": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "film", "name__orig": "film", "Name": "Film", "name_": "film", "name-": "film", "NAME": "FILM", "index$": 0 }, { "active": true, "entity": "film", "key$": "BasicFilmFlow", "kind": "basic", "name": "BasicFilmFlow", "param": {}, "step": [{ "active": true, "data": {}, "input": {}, "match": {}, "op": "list", "spec": [], "valid": [{ "apply": "ItemExists", "def": { "ref": "film_ref01" } }], "index$": 0 }, { "active": true, "data": {}, "input": { "ref": "film_ref01", "srcdatavar": "film_ref01_data", "suffix": "_dt0" }, "match": { "id": "film01" }, "op": "load", "spec": [], "valid": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-film_ref01" } }], "index$": 1 }] }, 'Film');
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -106,12 +104,6 @@ function basicSetup(extra) {
                 '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
             }]
     });
-    // Detect whether the user provided a real ENTID JSON via env var. The
-    // basic flow consumes synthetic IDs from the fixture file; without an
-    // override those synthetic IDs reach the live API and 4xx. Surface this
-    // to the test so it can skip rather than fail.
-    const idmapEnvVal = process.env['FILM_TEST_FILM_ENTID'];
-    const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{');
     const env = (0, utility_1.envOverride)({
         'FILM_TEST_FILM_ENTID': idmap,
         'FILM_TEST_LIVE': 'FALSE',
@@ -119,7 +111,13 @@ function basicSetup(extra) {
     });
     idmap = env['FILM_TEST_FILM_ENTID'];
     const live = 'TRUE' === env.FILM_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
     if (live) {
+        const rawIds = process.env['FILM_TEST_FILM_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
         client = new __1.FilmSDK(merge([
             // FIRST, so the generated fields below win: sdk-test-control.json's
             // test.client.options adds to the live client, it does not redirect it.
@@ -130,7 +128,8 @@ function basicSetup(extra) {
             // argument at all - so a bare 'extra' silently discarded the apikey
             // and server values above and handed the SDK undefined. Harmless
             // while there was nothing in that object; not harmless now.
-            extra || {}
+            extra || {},
+            { system: { fetch: transport.fetch } }
         ]));
     }
     const setup = {
@@ -142,7 +141,7 @@ function basicSetup(extra) {
         data: entityData,
         explain: 'TRUE' === env.FILM_TEST_EXPLAIN,
         live,
-        syntheticOnly: live && !idmapOverridden,
+        transport,
         now: Date.now(),
     };
     return setup;

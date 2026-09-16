@@ -1,12 +1,18 @@
 # Film SDK feature factory
 
 from film_sdk.feature.base_feature import FilmBaseFeature
+from film_sdk.feature.ratelimit_feature import FilmRatelimitFeature
+from film_sdk.feature.retry_feature import FilmRetryFeature
 from film_sdk.feature.test_feature import FilmTestFeature
+from film_sdk.feature.timeout_feature import FilmTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: FilmBaseFeature(),
+    "ratelimit": lambda: FilmRatelimitFeature(),
+    "retry": lambda: FilmRetryFeature(),
     "test": lambda: FilmTestFeature(),
+    "timeout": lambda: FilmTimeoutFeature(),
 }
 
 
