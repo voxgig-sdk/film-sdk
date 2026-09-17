@@ -105,12 +105,12 @@ local results, err = client:Film():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/film-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/film-sdk/releases) |
-| Python | `voxgig-sdk-film` | publish pending — [install from git tag](https://github.com/voxgig-sdk/film-sdk/releases) |
-| PHP | `voxgig-sdk/film` | publish pending — [install from git tag](https://github.com/voxgig-sdk/film-sdk/releases) |
+| TypeScript | `@voxgig-sdk/film-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/film-sdk/tags) |
+| Python | `voxgig-sdk-film` | publish pending — [install from git tag](https://github.com/voxgig-sdk/film-sdk/tags) |
+| PHP | `voxgig-sdk/film` | publish pending — [install from git tag](https://github.com/voxgig-sdk/film-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/film-sdk/go` | `go get github.com/voxgig-sdk/film-sdk/go@latest` |
-| Ruby | `voxgig-sdk-film` | publish pending — [install from git tag](https://github.com/voxgig-sdk/film-sdk/releases) |
-| Lua | `voxgig-sdk-film` | publish pending — [install from git tag](https://github.com/voxgig-sdk/film-sdk/releases) |
+| Ruby | `voxgig-sdk-film` | publish pending — [install from git tag](https://github.com/voxgig-sdk/film-sdk/tags) |
+| Lua | `voxgig-sdk-film` | publish pending — [install from git tag](https://github.com/voxgig-sdk/film-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/film-sdk/go-cli` | `go install github.com/voxgig-sdk/film-sdk/go-cli/cmd/film@latest` |
 | Go MCP server | `github.com/voxgig-sdk/film-sdk/go-mcp` | `go get github.com/voxgig-sdk/film-sdk/go-mcp@latest` |
 
