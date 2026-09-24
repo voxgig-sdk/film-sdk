@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,64 +132,75 @@ class Config {
       "fields": [
         {
           "name": "brand",
+          "title": "Brand",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Brand name of the film manufacturer",
-          "type": "`$STRING`"
+          "short": "Brand name of the film manufacturer"
         },
         {
           "name": "description",
-          "short": "Detailed description of the film",
-          "type": "`$STRING`"
+          "title": "Description",
+          "type": "`$STRING`",
+          "short": "Detailed description of the film"
         },
         {
           "name": "format120",
-          "short": "Indicates if the film is available in 120 format",
-          "type": "`$BOOLEAN`"
+          "title": "Format120",
+          "type": "`$BOOLEAN`",
+          "short": "Indicates if the film is available in 120 format"
         },
         {
           "name": "format35mm",
-          "short": "Indicates if the film is available in 35mm format",
-          "type": "`$BOOLEAN`"
+          "title": "Format35mm",
+          "type": "`$BOOLEAN`",
+          "short": "Indicates if the film is available in 35mm format"
         },
         {
           "name": "id",
+          "title": "Id",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Unique identifier for the film",
-          "type": "`$STRING`"
+          "short": "Unique identifier for the film"
         },
         {
-          "format": "uri",
           "name": "image",
+          "title": "Image",
+          "type": "`$STRING`",
           "short": "URL to an image of the film",
-          "type": "`$STRING`"
+          "format": "uri"
         },
         {
           "name": "iso",
+          "title": "Iso",
+          "type": "`$INTEGER`",
           "req": true,
-          "short": "ISO rating of the film",
-          "type": "`$INTEGER`"
+          "short": "ISO rating of the film"
         },
         {
           "name": "keyFeatures",
-          "short": "List of key features and characteristics of the film",
-          "type": "`$ARRAY`"
+          "title": "Key Features",
+          "type": "`$ARRAY`",
+          "short": "List of key features and characteristics of the film"
         },
         {
           "name": "model",
+          "title": "Model",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Film model name",
-          "type": "`$STRING`"
+          "short": "Film model name"
         },
         {
           "name": "processingType",
-          "short": "Type of chemical processing required for the film",
-          "type": "`$STRING`"
+          "title": "Processing Type",
+          "type": "`$STRING`",
+          "short": "Type of chemical processing required for the film"
         },
         {
           "name": "type",
+          "title": "Type",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Specifies whether the film is color or black and white",
-          "type": "`$STRING`"
+          "short": "Specifies whether the film is color or black and white"
         }
       ],
       "id": {
@@ -210,7 +214,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {},
               "kind": "http",
               "method": "GET",
               "orig": "/api/films",
@@ -222,15 +225,17 @@ class Config {
                   "lit": "films"
                 }
               ],
-              "select": {},
+              "parts": [
+                "api",
+                "films"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "api",
-                "films"
-              ]
+              "args": {},
+              "select": {}
             }
           ]
         },
@@ -239,17 +244,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/api/films/{id}",
@@ -264,20 +258,32 @@ class Config {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
               "parts": [
                 "api",
                 "films",
                 "{id}"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$STRING`",
+                    "kind": "param",
+                    "reqd": true
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
             }
           ]
         }

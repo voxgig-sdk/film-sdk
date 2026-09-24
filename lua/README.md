@@ -43,7 +43,7 @@ local films, err = client:Film():list()
 if err then error(err) end
 
 for _, item in ipairs(films) do
-  print(item["id"], item["brand"])
+  print(item["id"])
 end
 ```
 

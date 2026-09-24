@@ -24,92 +24,169 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "film": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "brand",
-              "req": true,
-              "short": "Brand name of the film manufacturer",
-              "type": "`$STRING`"
+          "fields": {
+            "brand": {
+              "a": true,
+              "h": "Brand",
+              "n": "brand",
+              "r": true,
+              "sh": "Brand name of the film manufacturer",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "description",
-              "req": false,
-              "short": "Detailed description of the film",
-              "type": "`$STRING`"
+            "description": {
+              "a": true,
+              "h": "Description",
+              "n": "description",
+              "r": false,
+              "sh": "Detailed description of the film",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "format120",
-              "req": false,
-              "short": "Indicates if the film is available in 120 format",
-              "type": "`$BOOLEAN`"
+            "format120": {
+              "a": true,
+              "h": "Format120",
+              "n": "format120",
+              "r": false,
+              "sh": "Indicates if the film is available in 120 format",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "format35mm",
-              "req": false,
-              "short": "Indicates if the film is available in 35mm format",
-              "type": "`$BOOLEAN`"
+            "format35mm": {
+              "a": true,
+              "h": "Format35mm",
+              "n": "format35mm",
+              "r": false,
+              "sh": "Indicates if the film is available in 35mm format",
+              "t": "`$BOOLEAN`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": true,
-              "short": "Unique identifier for the film",
-              "type": "`$STRING`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": true,
+              "sh": "Unique identifier for the film",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "image",
-              "req": false,
-              "short": "URL to an image of the film",
-              "type": "`$STRING`"
+            "image": {
+              "a": true,
+              "fo": "uri",
+              "h": "Image",
+              "n": "image",
+              "r": false,
+              "sh": "URL to an image of the film",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "iso",
-              "req": true,
-              "short": "ISO rating of the film",
-              "type": "`$INTEGER`"
+            "iso": {
+              "a": true,
+              "h": "Iso",
+              "n": "iso",
+              "r": true,
+              "sh": "ISO rating of the film",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "keyFeatures",
-              "req": false,
-              "short": "List of key features and characteristics of the film",
-              "type": "`$ARRAY`"
+            "keyFeatures": {
+              "a": true,
+              "h": "Key Features",
+              "n": "keyFeatures",
+              "r": false,
+              "sh": "List of key features and characteristics of the film",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "model",
-              "req": true,
-              "short": "Film model name",
-              "type": "`$STRING`"
+            "model": {
+              "a": true,
+              "h": "Model",
+              "n": "model",
+              "r": true,
+              "sh": "Film model name",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "processingType",
-              "req": false,
-              "short": "Type of chemical processing required for the film",
-              "type": "`$STRING`"
+            "processingType": {
+              "a": true,
+              "h": "Processing Type",
+              "n": "processingType",
+              "r": false,
+              "sh": "Type of chemical processing required for the film",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "type",
-              "req": true,
-              "short": "Specifies whether the film is color or black and white",
-              "type": "`$STRING`"
+            "type": {
+              "a": true,
+              "h": "Type",
+              "n": "type",
+              "r": true,
+              "sh": "Specifies whether the film is color or black and white",
+              "t": "`$STRING`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -121,18 +198,19 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {},
-                  "contract": {
+                  "a": true,
+                  "co": {
                     "id": "GET /api/films",
-                    "json": "{\"operationId\":\"getAllFilms\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"items\":{\"properties\":{\"brand\":{\"description\":\"Brand name of the film manufacturer\",\"example\":\"Kodak\",\"type\":\"string\"},\"description\":{\"description\":\"Detailed description of the film\",\"type\":\"string\"},\"format120\":{\"description\":\"Indicates if the film is available in 120 format\",\"type\":\"boolean\"},\"format35mm\":{\"description\":\"Indicates if the film is available in 35mm format\",\"type\":\"boolean\"},\"id\":{\"description\":\"Unique identifier for the film\",\"type\":\"string\"},\"image\":{\"description\":\"URL to an image of the film\",\"format\":\"uri\",\"type\":\"string\"},\"iso\":{\"description\":\"ISO rating of the film\",\"example\":400,\"type\":\"integer\"},\"keyFeatures\":{\"description\":\"List of key features and characteristics of the film\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"model\":{\"description\":\"Film model name\",\"example\":\"Portra 400\",\"type\":\"string\"},\"processingType\":{\"description\":\"Type of chemical processing required for the film\",\"example\":\"C-41\",\"type\":\"string\"},\"type\":{\"description\":\"Specifies whether the film is color or black and white\",\"enum\":[\"color\",\"black_and_white\"],\"type\":\"string\"}},\"required\":[\"id\",\"brand\",\"model\",\"iso\",\"type\"],\"type\":\"object\"},\"type\":\"array\"}}},\"description\":\"Successful response with list of films\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
                     "source": "openapi3",
-                    "version": 1
+                    "version": 2
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/films",
-                  "segments": [
+                  "g": {},
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/films",
+                  "q": {},
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -140,8 +218,7 @@
                       "lit": "films"
                     }
                   ],
-                  "select": {},
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -153,29 +230,34 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /api/films/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /api/films/{id}",
-                    "json": "{\"operationId\":\"getFilmById\",\"parameters\":[{\"description\":\"Unique identifier of the film\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"brand\":{\"description\":\"Brand name of the film manufacturer\",\"example\":\"Kodak\",\"type\":\"string\"},\"description\":{\"description\":\"Detailed description of the film\",\"type\":\"string\"},\"format120\":{\"description\":\"Indicates if the film is available in 120 format\",\"type\":\"boolean\"},\"format35mm\":{\"description\":\"Indicates if the film is available in 35mm format\",\"type\":\"boolean\"},\"id\":{\"description\":\"Unique identifier for the film\",\"type\":\"string\"},\"image\":{\"description\":\"URL to an image of the film\",\"format\":\"uri\",\"type\":\"string\"},\"iso\":{\"description\":\"ISO rating of the film\",\"example\":400,\"type\":\"integer\"},\"keyFeatures\":{\"description\":\"List of key features and characteristics of the film\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"model\":{\"description\":\"Film model name\",\"example\":\"Portra 400\",\"type\":\"string\"},\"processingType\":{\"description\":\"Type of chemical processing required for the film\",\"example\":\"C-41\",\"type\":\"string\"},\"type\":{\"description\":\"Specifies whether the film is color or black and white\",\"enum\":[\"color\",\"black_and_white\"],\"type\":\"string\"}},\"required\":[\"id\",\"brand\",\"model\",\"iso\",\"type\"],\"type\":\"object\"}}},\"description\":\"Successful response with film details\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Film not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"message\":{\"description\":\"Detailed error description\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/api/films/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/api/films/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "api"
                     },
@@ -186,12 +268,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -620,13 +697,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -636,19 +713,19 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "film_ref01",
                 "srcdatavar": "film_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "film01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

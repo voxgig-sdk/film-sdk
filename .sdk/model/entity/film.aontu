@@ -1,0 +1,170 @@
+# Entity: film
+
+main: kit: entity: film: {
+
+  alias: field: {}
+
+  fields: {
+    brand: {
+      h: "Brand"
+      n: "brand"
+      r: true
+      sh: "Brand name of the film manufacturer"
+      t: "`$STRING`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Detailed description of the film"
+      t: "`$STRING`"
+    }
+    format120: {
+      h: "Format120"
+      n: "format120"
+      r: false
+      sh: "Indicates if the film is available in 120 format"
+      t: "`$BOOLEAN`"
+    }
+    format35mm: {
+      h: "Format35mm"
+      n: "format35mm"
+      r: false
+      sh: "Indicates if the film is available in 35mm format"
+      t: "`$BOOLEAN`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier for the film"
+      t: "`$STRING`"
+    }
+    image: {
+      fo: "uri"
+      h: "Image"
+      n: "image"
+      r: false
+      sh: "URL to an image of the film"
+      t: "`$STRING`"
+    }
+    iso: {
+      h: "Iso"
+      n: "iso"
+      r: true
+      sh: "ISO rating of the film"
+      t: "`$INTEGER`"
+    }
+    keyFeatures: {
+      h: "Key Features"
+      n: "keyFeatures"
+      r: false
+      sh: "List of key features and characteristics of the film"
+      t: "`$ARRAY`"
+    }
+    model: {
+      h: "Model"
+      n: "model"
+      r: true
+      sh: "Film model name"
+      t: "`$STRING`"
+    }
+    processingType: {
+      h: "Processing Type"
+      n: "processingType"
+      r: false
+      sh: "Type of chemical processing required for the film"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      sh: "Specifies whether the film is color or black and white"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "film"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /api/films"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/api/films"
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "films"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /api/films/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/api/films/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "api"
+            }
+            {
+              lit: "films"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

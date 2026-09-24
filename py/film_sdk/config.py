@@ -116,64 +116,75 @@ def make_config():
         "fields": [
           {
             "name": "brand",
+            "title": "Brand",
+            "type": "`$STRING`",
             "req": True,
             "short": "Brand name of the film manufacturer",
-            "type": "`$STRING`",
           },
           {
             "name": "description",
-            "short": "Detailed description of the film",
+            "title": "Description",
             "type": "`$STRING`",
+            "short": "Detailed description of the film",
           },
           {
             "name": "format120",
-            "short": "Indicates if the film is available in 120 format",
+            "title": "Format120",
             "type": "`$BOOLEAN`",
+            "short": "Indicates if the film is available in 120 format",
           },
           {
             "name": "format35mm",
-            "short": "Indicates if the film is available in 35mm format",
+            "title": "Format35mm",
             "type": "`$BOOLEAN`",
+            "short": "Indicates if the film is available in 35mm format",
           },
           {
             "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "Unique identifier for the film",
-            "type": "`$STRING`",
           },
           {
-            "format": "uri",
             "name": "image",
-            "short": "URL to an image of the film",
+            "title": "Image",
             "type": "`$STRING`",
+            "short": "URL to an image of the film",
+            "format": "uri",
           },
           {
             "name": "iso",
+            "title": "Iso",
+            "type": "`$INTEGER`",
             "req": True,
             "short": "ISO rating of the film",
-            "type": "`$INTEGER`",
           },
           {
             "name": "keyFeatures",
-            "short": "List of key features and characteristics of the film",
+            "title": "Key Features",
             "type": "`$ARRAY`",
+            "short": "List of key features and characteristics of the film",
           },
           {
             "name": "model",
+            "title": "Model",
+            "type": "`$STRING`",
             "req": True,
             "short": "Film model name",
-            "type": "`$STRING`",
           },
           {
             "name": "processingType",
-            "short": "Type of chemical processing required for the film",
+            "title": "Processing Type",
             "type": "`$STRING`",
+            "short": "Type of chemical processing required for the film",
           },
           {
             "name": "type",
+            "title": "Type",
+            "type": "`$STRING`",
             "req": True,
             "short": "Specifies whether the film is color or black and white",
-            "type": "`$STRING`",
           },
         ],
         "id": {
@@ -187,7 +198,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/films",
@@ -199,15 +209,17 @@ def make_config():
                     "lit": "films",
                   },
                 ],
-                "select": {},
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "api",
                   "films",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {},
+                "select": {},
               },
             ],
           },
@@ -216,17 +228,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/api/films/{id}",
@@ -241,20 +242,32 @@ def make_config():
                     "var": "id",
                   },
                 ],
-                "select": {
-                  "exist": [
-                    "id",
-                  ],
-                },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
                 "parts": [
                   "api",
                   "films",
                   "{id}",
                 ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "id",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                    },
+                  ],
+                },
+                "select": {
+                  "exist": [
+                    "id",
+                  ],
+                },
               },
             ],
           },

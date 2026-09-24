@@ -91,64 +91,75 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "brand",
+						"title": "Brand",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Brand name of the film manufacturer",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Detailed description of the film",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Detailed description of the film",
 					},
 					map[string]any{
 						"name": "format120",
-						"short": "Indicates if the film is available in 120 format",
+						"title": "Format120",
 						"type": "`$BOOLEAN`",
+						"short": "Indicates if the film is available in 120 format",
 					},
 					map[string]any{
 						"name": "format35mm",
-						"short": "Indicates if the film is available in 35mm format",
+						"title": "Format35mm",
 						"type": "`$BOOLEAN`",
+						"short": "Indicates if the film is available in 35mm format",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Unique identifier for the film",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "image",
-						"short": "URL to an image of the film",
+						"title": "Image",
 						"type": "`$STRING`",
+						"short": "URL to an image of the film",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "iso",
+						"title": "Iso",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "ISO rating of the film",
-						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "keyFeatures",
-						"short": "List of key features and characteristics of the film",
+						"title": "Key Features",
 						"type": "`$ARRAY`",
+						"short": "List of key features and characteristics of the film",
 					},
 					map[string]any{
 						"name": "model",
+						"title": "Model",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Film model name",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "processingType",
-						"short": "Type of chemical processing required for the film",
+						"title": "Processing Type",
 						"type": "`$STRING`",
+						"short": "Type of chemical processing required for the film",
 					},
 					map[string]any{
 						"name": "type",
+						"title": "Type",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Specifies whether the film is color or black and white",
-						"type": "`$STRING`",
 					},
 				},
 				"id": map[string]any{
@@ -162,7 +173,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/films",
@@ -174,15 +184,17 @@ func MakeConfig() map[string]any {
 										"lit": "films",
 									},
 								},
-								"select": map[string]any{},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"api",
 									"films",
 								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},
@@ -191,17 +203,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/api/films/{id}",
@@ -216,19 +217,31 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
 								"parts": []any{
 									"api",
 									"films",
 									"{id}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},

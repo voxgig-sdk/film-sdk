@@ -1,7 +1,7 @@
 // Typed models for the Film SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,17 +14,6 @@ import (
 
 // Film is the typed data model for the film entity.
 type Film struct {
-	Brand string `json:"brand"`
-	Description *string `json:"description,omitempty"`
-	Format120 *bool `json:"format120,omitempty"`
-	Format35mm *bool `json:"format35mm,omitempty"`
-	Id string `json:"id"`
-	Image *string `json:"image,omitempty"`
-	Iso int `json:"iso"`
-	KeyFeatures *[]any `json:"keyFeatures,omitempty"`
-	Model string `json:"model"`
-	ProcessingType *string `json:"processingType,omitempty"`
-	Type string `json:"type"`
 }
 
 // FilmLoadMatch is the typed request payload for Film.LoadTyped.
